@@ -9,11 +9,10 @@
   img.navLogo(src="/img/00_COMMON/LOGO.png",
               :class="{active: scrollTop>indexHeight}")
 
-
 </template>
 
 <script>
-import {mapState , mapMutations} from 'vuex'
+import {mapState , mapMutations , mapActions} from 'vuex'
 import $ from 'jquery'
 export default {
   data () {
@@ -22,13 +21,14 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['scrollTo'])
+    ...mapMutations(['scrollTo']),
+    ...mapActions(['checkOut'])
   },
   mounted(){
     this.indexHeight=$(".pageIndex").outerHeight()
   },
   computed:{
-    ...mapState(['scrollTop'])
+    ...mapState(['scrollTop','cart'])
   }
 }
 </script>
@@ -37,6 +37,11 @@ export default {
 <style lang="sass">
 
 @import "../../sass/_variables.sass"
+
+.btn_checkOut
+  position: fixed
+  right: 50px
+  top: 50px
 
 .navPanel
   position: fixed

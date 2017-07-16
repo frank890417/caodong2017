@@ -1,7 +1,5 @@
 <template lang="jade">
 #fullpage
-  //router-view
-  pageBuy
   pageIndex     
   pageIntro
   pageNews
@@ -9,15 +7,16 @@
   pageVideo
   pageTour
   pageContact
+  Navbar
+  navFixed
   footer
     blockqoute Copyright 2017 © 草東沒有派對 No Party For Cao Dong, All right reserved.
 
-  Navbar
+  
 
 </template>
 
 <script>
-import pageBuy from './components/pageBuy'
 import pageIndex from './components/pageIndex'
 import pageIntro from './components/pageIntro'
 import pageNews from './components/pageNews'
@@ -26,11 +25,12 @@ import pageVideo from './components/pageVideo'
 import pageContact from './components/pageContact'
 import pageTour from './components/pageTour'
 import Navbar from './components/Navbar'
+import navFixed from './components/navFixed'
 import $ from 'jquery'
 export default {
   // name: 'App',
   components: {
-    pageIndex, pageIntro, pageNews , pageWorks, pageVideo , pageContact ,pageTour,Navbar , pageBuy
+    pageIndex, pageIntro, pageNews , pageWorks, pageVideo , pageContact ,pageTour,Navbar ,navFixed
   },
   mounted(){
     // $('#fullpage').fullpage({

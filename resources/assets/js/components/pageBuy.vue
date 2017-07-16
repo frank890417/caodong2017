@@ -15,7 +15,7 @@
 </template>
 
 <script>
-
+import {mapState,mapMutations,mapActions} from 'vuex'
 import Axios from 'axios'
 import $ from 'jquery'
 export default {
@@ -29,24 +29,19 @@ export default {
     data(){
       return {
         songs: [],
-        cart: []
       }
     },
     methods: {
       addCart(obj){
         if (!this.cart.find(o=>o.title==obj.title) ){
-          this.cart.push(obj)
+          this.add_buy_item(obj)
         }
       },
-      checkOut(){
-        // localStorage.cart = JSON.stringify(this.cart)
-        axios.post("/checkout",{cart: this.cart}).then((res)=>{
-          console.log(res.data)
-          window.document.write(res.data);
-        })
-      }
+      ...mapMutations(['add_buy_item','checkout']),
+      ...mapActions(['checkOut'])
     },
     computed:{
+      ...mapState(["cart"]),
       totalPrice(){
         return this.cart.map(o=>o.price).reduce((a,b)=>(a+b),0)
       }

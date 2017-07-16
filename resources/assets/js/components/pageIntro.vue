@@ -69,6 +69,7 @@ export default {
 
 .content
   +flex_center
+  width: 86%
   flex-direction: column
 
 .about_text
