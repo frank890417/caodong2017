@@ -1,0 +1,93 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600")
+
+// Variables
+@import "variables"
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
+
+@import url("http://fonts.googleapis.com/earlyaccess/notosanstc.css")
+
+// @import "/_variables.sass"
+
+//mixins
+=size($w,$h:$w)
+  width: $w
+  height: $h
+
+html,body
+  padding: 0
+  margin: 0
+  color: white
+  text-align: left
+  line-height: 40px
+  background-color: black
+  font-size: 14px
+  letter-spacing: 2px
+  line-height: 25px
+p
+  text-align: left
+  font-weight: 700
+  color: white
+  letter-spacing: 1px
+
+
+#app 
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  color: #fff
+
+
+*
+  font-family: 'Songti TC','Noto Sans TC','微軟正黑體','Avenir', Helvetica, Arial, sans-serif
+
+@keyframes tv_tile
+  0%
+    transform: translateY(0px)
+  30%
+    transform: translateY(7px)
+  50%
+    transform: translateY(11px)
+  100%
+    transform: translateY(20px)
+
+.tile
+  background-image: linear-gradient(transparent 0%, transparent 30% , black 30%, black 100%) 
+  background-repeat: repeat
+  background-size: 100% 10px
+  +size(100%)
+  z-index: 1
+  animation: tv_tile 10s infinite linear  
+
+//每一頁
+.page
+  +size(100%,100vh)  
+  position: relative
+  background: url("./assets/img/01_INTRO/BG-01.jpg")
+  background-size: cover
+  background-attachment: fixed
+
+//左側長條
+.left_img
+  width: 16%
+
+//聲明
+blockqoute
+  font-size: 14px
+  opacity: 0.5
+  letter-spacing: 2px
+  padding-bottom: 20px
+
+.fade-enter-active, .fade-leave-active
+  transition: opacity .5s
+  max-height: 2000px
+  overflow: hidden
+.fade-enter-active
+  transition-delay: 0.5s  
+
+.fade-enter, .fade-leave-to
+  opacity: 0
+  max-height: 0
