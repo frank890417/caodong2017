@@ -1,0 +1,54 @@
+
+.pageIndex
+  overflow: hidden
+
+  .time
+    position: absolute
+    left: 50px
+    top: 30px
+    color: white
+    z-index: 3
+    text-align: left
+    line-height: 30px
+    font-weight: 700
+    letter-spacing: 1px
+
+  .bg,.tile
+    position: absolute
+    left: 0
+    top: 0
+  .bg
+    background-image: url("/img/00_HOME/BG-01.jpg")
+    background-size: cover
+    +size(100%)
+    z-index: 0
+
+
+  @keyframes index_tv_tile
+    0%
+      transform: translateY(-0px)
+    30%
+      transform: translateY(-4px)
+    50%
+      transform: translateY(-8px)
+    100%
+      transform: translateY(-18px)
+  .tile
+    background-image: linear-gradient(transparent 0%, transparent 24% , black 24%, black 100%) 
+    background-repeat: repeat
+    background-size: 100% 18px
+    +size(120%)
+    z-index: 1
+    animation: index_tv_tile 2s infinite linear
+
+  .front_element
+    +ab_full
+    z-index: 2
+    +flex_center
+    flex-direction: column
+    .arrow_down
+      width: 50px
+    .logo
+      width: 350px
+    
+  

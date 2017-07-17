@@ -5,10 +5,11 @@
   pageNews
   pageWorks
   pageVideo
+  pageBuy
   pageTour
   pageContact
   Navbar
-  navFixed
+  userPanel
   footer
     blockqoute Copyright 2017 © 草東沒有派對 No Party For Cao Dong, All right reserved.
 
@@ -22,15 +23,16 @@ import pageIntro from './components/pageIntro'
 import pageNews from './components/pageNews'
 import pageWorks from './components/pageWorks'
 import pageVideo from './components/pageVideo'
+import pageBuy from './components/pageBuy'
 import pageContact from './components/pageContact'
 import pageTour from './components/pageTour'
 import Navbar from './components/Navbar'
-import navFixed from './components/navFixed'
+import userPanel from './components/userPanel'
 import $ from 'jquery'
 export default {
   // name: 'App',
   components: {
-    pageIndex, pageIntro, pageNews , pageWorks, pageVideo , pageContact ,pageTour,Navbar ,navFixed
+    pageIndex, pageIntro, pageNews , pageWorks, pageBuy, pageVideo , pageContact ,pageTour,Navbar ,userPanel
   },
   mounted(){
     // $('#fullpage').fullpage({

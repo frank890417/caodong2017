@@ -1,0 +1,73 @@
+.userPanel
+
+    //components
+    .btn
+        border: solid 1px white
+        padding: 5px 10px
+
+    //panels
+    .fullPagePanel
+        position: fixed
+        left: 0
+        top: 0
+        +size(100%)
+        background-color: rgba(0,0,0,0.9)
+        z-index: 500
+        text-align: left
+        +flex_center
+
+        ul
+            padding: 0
+
+        .navs
+            margin-top: 30px
+            display: flex
+            +flex_center
+            justify-content: flex-start
+            .icon
+            li
+                padding: 5px 15px
+                cursor: pointer
+                &:hover
+                    background-color: #fff
+                    color: black
+        .subPanel
+            width: 50vw
+
+
+    .btnCheckOut
+        position: fixed
+        right: 100px
+        top: 50px
+        color: white
+        z-index: 1000
+        cursor: pointer
+    .btnMember
+        position: fixed
+        right: 50px
+        top: 50px
+        color: white
+        z-index: 1000
+        cursor: pointer
+
+    .subPanel
+        border: solid 1px white
+        margin-top: 20px
+        padding: 20px
+
+
+    //購物車清單
+    .buyCart
+        .buyItem
+            display: flex
+            border-bottom: solid 1px white
+            padding: 5px 10px
+            display: flex
+            justify-content: space-between
+            font-size: 16px
+            .price
+                span
+                    display: inline-block
+            .textPrice
+                margin-right: 10px
+

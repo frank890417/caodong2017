@@ -1,0 +1,60 @@
+.pageContact
+
+  overflow: hidden
+  background: url("/img/01_INTRO/BG-01.jpg")
+  background-size: cover
+  +flex_center
+  align-items: flex-start
+  background-attachment: fixed
+
+  .back_img
+    width: 80%
+    height: 90vh
+    border-radius: 0px 0px 120px 120px
+    background: url("/img/06_CONTACT/UP.jpg")
+    background-size: 80% auto
+    background-position: center center
+    // background-attachment: fixed
+    display: flex
+    position: absolute
+    transition: 0.04s
+    &:before
+      +pseudo_ab_full
+      background: linear-gradient(rgba(black,0.7) 0%,transparent 50%)
+      background-size: 100% 100%
+      z-index: 0
+      pointer-events: none
+
+    
+    .left_img
+      height: 90vh
+      border-radius: 0px 0px 120px 120px
+      background: url("/img/06_CONTACT/DOWN.jpg")
+      background-size: 1500px auto
+      background-position: 10% center  
+      overflow: hidden
+
+
+  .agent_info
+    position: absolute
+    left: 30%
+    bottom: 20%
+    font-weight: 500
+
+  .platform
+    position: absolute
+    img
+      height: 40px
+    opacity: 0.6
+    cursor: pointer
+    +trans
+    &:hover
+      opacity: 1
+
+  .content
+    +flex_center
+    flex-direction: column
+  .about_text
+    height: 50px
+    display: block
+    margin-bottom: 20px

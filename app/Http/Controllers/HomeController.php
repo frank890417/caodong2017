@@ -119,7 +119,7 @@ class HomeController extends Controller
 
         //Go to ECPay
         echo "緑界頁面導向中...";
-        echo Ecpay::i()->CheckOut();
+        echo Ecpay::i()->CheckOutString();
         // return view('home');
     }
 }

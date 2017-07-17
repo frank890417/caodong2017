@@ -49,8 +49,9 @@ export default new Vuex.Store({
     ],
     cart: [
 
-    ]
-    
+    ],
+    memberPanelOpened: false,
+    user: null
   },
   mutations: {
     set_scrollTop(state,value){
@@ -61,16 +62,23 @@ export default new Vuex.Store({
     },
     add_buy_item(state,item){
       state.cart.push(item)
+    },
+    toggleMemberPanel(state){
+      state.memberPanelOpened = !state.memberPanelOpened
     }
 
   },
   actions: {
     checkOut(context){
       // localStorage.cart = JSON.stringify(this.cart)
-      axios.post("/checkout",{cart: context.state.cart}).then((res)=>{
-        console.log(res.data)
-        window.document.write(res.data);
-      })
+      if (context.state.cart.length>0){
+        axios.post("/checkout",{cart: context.state.cart}).then((res)=>{
+          console.log(res.data)
+          window.document.write(res.data);
+        })
+      }else{
+        alert("您的購物車裡沒有任何商品：） 請參考...")
+      }
     }
   }
 })
