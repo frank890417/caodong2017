@@ -70,17 +70,29 @@ if (lockScroll && $(window).outerHeight() > 800 &&  $(window).outerWidth()  > 10
     })  
 
     if ($preblock && direct=='up'){
-      $("html,body").animate({scrollTop: $preblock.offset().top } ,1000)
-      setTimeout(()=>scrolling=false,1000)
+      
+      // let preClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
+      // router.push("/"+preClass.split("page")[1].toLowerCase())
+      $("html,body").animate({scrollTop:  $preblock .offset().top+2},1000)
+      setTimeout(()=>scrolling=false,500)
     }
     if ($postblock && direct=='down'){
+      
       $("html,body").animate({scrollTop: $postblock.offset().top } ,1000)
-      setTimeout(()=>scrolling=false,1000)
+      // let postClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
+      // router.push("/"+postClass.split("page")[1].toLowerCase())
+      setTimeout(()=>scrolling=false,500)
     }
     
 
   })
 }
+var windowHeight = $(window).outerHeight()
+// $(window).bind('mousewheel', (event) => {
+//   // if ( windowHeight > 850) {
+//     event.preventDefault();
+//   // }
+// });
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

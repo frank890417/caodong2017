@@ -16,9 +16,12 @@ class ApiController extends Controller
   public function getAlbumByTitle($title){
     return Album::where("title",$title)->first();
   }
-
   public function nowUser(){
-    return Auth::user();
+    dd(Auth::user());
+    if (Auth::check() && Auth::user()->name){
+      return ["status"=> "logined", "user"=> Auth::user() ];
+    }
+    return ["status"=> "unauthed"];
   }
 
   public function getAlbumSongsByTitle($title){

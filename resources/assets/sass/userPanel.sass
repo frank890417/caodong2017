@@ -28,27 +28,16 @@
             li
                 padding: 5px 15px
                 cursor: pointer
+                opacity: 0.7
+                +trans
                 &:hover
-                    background-color: #fff
-                    color: black
+                    opacity: 1
+                    // background-color: #fff
+                    // color: black
         .subPanel
             width: 50vw
 
 
-    .btnCheckOut
-        position: fixed
-        right: 100px
-        top: 50px
-        color: white
-        z-index: 1000
-        cursor: pointer
-    .btnMember
-        position: fixed
-        right: 50px
-        top: 50px
-        color: white
-        z-index: 1000
-        cursor: pointer
 
     .subPanel
         border: solid 1px white
@@ -71,3 +60,39 @@
             .textPrice
                 margin-right: 10px
 
+
+.fixedBtns
+    position: fixed
+    z-index: 1000
+    right: 80px
+    top: 80px
+    display: flex
+    list-style: none
+
+    & > li
+        margin-left: 30px
+        color: white
+        cursor: pointer
+        position: relative
+        opacity: 0.7
+        +trans
+        img
+            width: 60px
+        &:hover
+            opacity: 1
+    .btnMember
+        margin-left: 10px
+    .btnCheckOut
+        // position: relative
+        .len
+            +size(20px)
+            border-radius: 50%
+            position: absolute
+            font-size: 30px
+            background: white
+            color: black
+            font-size: 12px
+            left: 5px
+            bottom: 20px
+            ＋flex_center
+    

@@ -39,12 +39,18 @@
     display: flex
     width: 84%
     align-items: flex-end
+    padding-bottom: 50px
+
     .left
-      width: 30%
+      width: 45%
     .right
       box-sizing: border-box
-      width: 70%
+      width: 55%
       padding-left: 5%
+      p
+        text-align: center
+        font-size: 16px
+        line-height: 30px
 
 
   .about_text
@@ -66,13 +72,24 @@
 
 
   .album_cover
-    width: 200px
+    width: 220px
+    border: solid 1px white
+    margin-bottom: 30px
+    // margin-left: 20px
+    // margin-right: 20px
 
   .track
     opacity: 0.55
     cursor: pointer
+    text-align: center
     +trans
     img
-      height: 30px
+      height: 28px
     &.active
       opacity: 1
+
+  .btns
+    display: flex
+    justify-content: center
+    a
+      color: white

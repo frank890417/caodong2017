@@ -5,7 +5,7 @@
   pageNews
   pageWorks
   pageVideo
-  pageBuy
+  pageShop
   pageTour
   pageContact
   Navbar
@@ -23,7 +23,7 @@ import pageIntro from './components/pageIntro'
 import pageNews from './components/pageNews'
 import pageWorks from './components/pageWorks'
 import pageVideo from './components/pageVideo'
-import pageBuy from './components/pageBuy'
+import pageShop from './components/pageShop'
 import pageContact from './components/pageContact'
 import pageTour from './components/pageTour'
 import Navbar from './components/Navbar'
@@ -32,7 +32,7 @@ import $ from 'jquery'
 export default {
   // name: 'App',
   components: {
-    pageIndex, pageIntro, pageNews , pageWorks, pageBuy, pageVideo , pageContact ,pageTour,Navbar ,userPanel
+    pageIndex, pageIntro, pageNews , pageWorks, pageShop, pageVideo , pageContact ,pageTour,Navbar ,userPanel
   },
   mounted(){
     // $('#fullpage').fullpage({

@@ -9,7 +9,7 @@
     :style="platform_css(platform)",
     :href="platform.link",
     target="_blank")
-    img(:src="'/img/06_CONTACT/連結/'+platform.name+'.png'",)
+    img(:src="'/img/07_CONTACT/連結/'+platform.name+'.png'",)
                  
 
 </template>

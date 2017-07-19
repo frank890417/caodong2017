@@ -13,8 +13,9 @@
   .front_element
     img.logo(src="/img/00_COMMON/LOGO.png")
     br
-    img.arrow_down(src="/img/元件/icon/ICON-03.png",
-                   @click="scrollTo('.pageIntro')")
+    router-link(to="/intro")
+      img.arrow_down(src="/img/元件/icon/ICON-03.png",
+                    @click="scrollTo('.pageIntro')")
 </template>
 
 <script>

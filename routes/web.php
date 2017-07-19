@@ -17,7 +17,9 @@ Route::get('/buy', 'HomeController@buy');
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
 
-
+Route::get('/unauthorized',function(){
+  return  ["status"=> 'unauthorized'];
+})->name('unauthorized');
 Auth::routes();
 
 Route::get('/paytest', 'HomeController@paytest');

@@ -15,7 +15,7 @@ use App\Http\Controllers\ApiContoller;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get("nowUser","ApiController@nowUser");
+Route::get("nowUser","AuthApiController@nowUser");
 Route::get("albums","ApiController@albums");
 Route::get("album/{title}/songs","ApiController@getAlbumSongsByTitle");
 Route::get("album/{title}","ApiController@getAlbumByTitle");

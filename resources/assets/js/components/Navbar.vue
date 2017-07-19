@@ -1,10 +1,31 @@
 <template lang="jade">
-.navPanel(:class="{active: scrollTop>indexHeight}")
-  img.navItem(src="/img/00_COMMON/HOME.png", @click="scrollTo('.pageIndex')")
-  img.navItem(src="/img/00_COMMON/INTRO.png", @click="scrollTo('.pagetrIno')")
-  img.navItem(src="/img/00_COMMON/WORKS.png", @click="scrollTo('.pageWorks')")
-  img.navItem(src="/img/00_COMMON/TOUR.png", @click="scrollTo('.pageTour')")
-  img.navItem(src="/img/00_COMMON/CONTACT.png", @click="scrollTo('.pageContact')")
+.navPanel.active
+  //pre(v-html="$route.path")
+  router-link(to="/")
+    img.navItem(src="/img/元件/目錄/HOME.png",
+              @click="scrollTo('.pageIndex')",
+                :class="{active: $route.path=='/'}",
+                )
+  router-link(to="/intro")
+    img.navItem(src="/img/元件/目錄/INTRO.png",
+             @click="scrollTo('.pageIntro')",
+              :class="{active: $route.path=='/intro'}")
+  router-link(to="/works")
+    img.navItem(src="/img/元件/目錄/WORKS.png",
+             @click="scrollTo('.pageWorks')",
+              :class="{active: $route.path=='/works'}")
+  router-link(to="/shop")
+    img.navItem(src="/img/元件/目錄/SHOP.png",
+             @click="scrollTo('.pageShop')",
+              :class="{active: $route.path=='/shop'}")
+  router-link(to="/tour")
+    img.navItem(src="/img/元件/目錄/TOUR.png",
+             @click="scrollTo('.pageTour')",
+              :class="{active: $route.path=='/tour'}")
+  router-link(to="/contact")
+    img.navItem(src="/img/元件/目錄/CONTACT.png",
+             @click="scrollTo('.pageContact')",
+              :class="{active: $route.path=='/contact'}")
 
   img.navLogo(src="/img/00_COMMON/LOGO.png",
               :class="{active: scrollTop>indexHeight}")
@@ -34,47 +55,3 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="sass">
-
-@import "../../sass/_variables.sass"
-
-.btn_checkOut
-  position: fixed
-  right: 50px
-  top: 50px
-
-.navPanel
-  position: fixed
-  z-index: 10
-  left: 7%
-  bottom: 10%
-  display: flex
-  flex-direction: column
-  
-  .navItem
-    width: 75px
-    // height: 20px
-    margin-bottom: 20px
-    cursor: pointer
-    user-select: none
-    opacity: 0
-    +trans
-    &:hover
-      transform: translate(-2px,-2px)
-  &.active
-    .navItem
-      opacity: 1
-
-.navLogo
-  position: fixed
-  top: 8%
-  width: 230px
-  opacity: 0
-  +trans
-  &.active
-    opacity: 1
-
-
-
-  
-</style>

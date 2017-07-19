@@ -16,13 +16,16 @@
                 :style="{'transform':`translateY(${(scrollTop-blockY)/(20-about.zIndex)}px)`}")
 
         ul.news_block(:style="{'transform':`translateY(${-(200+scrollTop-blockY)/(8)}px)`}")
-          .btn.btn_up(@click="newspage-=newspage>0?1:0") up
-          .btn.btn_down(@click="newspage+=1") down
-          li(v-for="(a_news,news_id) in news.slice(newspage*6,newspage*6+6)",
-             :key="news_id")
-            .date {{a_news.date}}
-            .news_content(v-html="a_news.content")
-      
+          .btn.btn_up(@click="newspage-=newspage>0?1:0")
+            img(src="/img/元件/ICON/ICON-54.png")
+          .btn.btn_down(@click="newspage+=1")
+            img(src="/img/元件/ICON/ICON-53.png")
+          transition-group(name="fade-delay", mode="out-in")
+            li(v-for="(a_news,news_id) in news.slice(newspage,newspage+6)",
+              :key="news_id")
+              .date {{a_news.date}}
+              .news_content(v-html="a_news.content")
+        
 </template>
 
 <script>

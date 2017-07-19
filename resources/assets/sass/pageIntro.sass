@@ -15,9 +15,16 @@
     background-position: right bottom
     background-attachment: fixed
 
+    @media screen and (min-aspect-ratio: 1/1)
+      background-size: auto 120%
+
+    @media screen and (min-aspect-ratio: 2/3)
+      background-size: auto 130%
+    
     display: flex
     position: absolute
     // transition: 0.02s
+    
 
 
     

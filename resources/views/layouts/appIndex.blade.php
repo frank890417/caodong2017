@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        @if (Auth::guest())
+        <!-- @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>
             <li><a href="{{ route('register') }}">Register</a></li>
         @else
@@ -38,7 +38,7 @@
                     </li>
                 </ul>
             </li>
-        @endif
+        @endif -->
     
         <!-- <App/>  -->
         <router-view/> 
@@ -48,6 +48,11 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
+        @if (!Auth::guest())
+            window.user = {!!  json_encode(Auth::user()) !!};
+        @else
+            window.user = null;
+        @endif
     </script>
 </body>
 </html>

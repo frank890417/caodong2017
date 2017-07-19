@@ -7,24 +7,29 @@
       .left.col_album
         .cover
           img.album_cover(alt="works",src="/img/03_WORKS/album.jpg")
-          .title 醜奴兒
-          .eng The Servile
+          // .title 醜奴兒
+          // .eng The Servile
         .tracks
           .track(v-for="(song,id) in songs",
                  :class="{active: playingId==id}",
                  @click="playingId=id")
             img(:src="'/img/03_WORKS/歌名/'+song.title+'.png'")
-            span(@click = "addCart(song)", v-if="!cart.find(o=>o.title==song.title)") + 購買
-            span(@click = "addCart(song)", v-else) - 移除
-      transition-group.right.col_lyrics(
-        tag="div", 
-        name="fade",
-        mode="out-in")
+      .right.col_lyrics
         p(v-html="replaceBr(song.lyrics)",
           v-for="(song,id) in songs",
           v-show="id==playingId",
           :key="song.title")
-  
+        
+        .btns
+          div(@click = "addCart(song)", v-if="!cart.find(o=>o.title==song.title)") 
+            img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
+            span 購買單曲
+          div(@click = "addCart(song)", v-else) - 
+            span 移除
+          router-link(to="/shop") 
+            img.icon(src="/img/元件/ICON/ICON-34.png", alt="") 
+            span 更多商品
+
 
       
 </template>
