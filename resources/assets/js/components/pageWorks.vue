@@ -15,12 +15,14 @@
                  @click="playingId=id")
             img(:src="'/img/03_WORKS/歌名/'+song.title+'.png'")
       .right.col_lyrics
-        p(v-html="replaceBr(song.lyrics)",
-          v-for="(song,id) in songs",
-          v-show="id==playingId",
-          :key="song.title")
+        transition-group(name="fade-delay",mode="out-in")
+          p.lyrics(v-html="replaceBr(song.lyrics)",
+            v-for="(song,id) in songs",
+            v-show="id==playingId",
+            :key="song.title")
         
         .btns
+          audio
           div(@click = "addCart(song)", v-if="!cart.find(o=>o.title==song.title)") 
             img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
             span 購買單曲
@@ -47,6 +49,7 @@ export default {
     })
   },
   methods: {
+    ...mapMutations(['toggleMemberPanel']),
     addCart(obj){
       if (!this.cart.find(o=>o.title==obj.title) ){
         this.add_buy_item(obj)

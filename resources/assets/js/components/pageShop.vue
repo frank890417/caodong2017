@@ -5,7 +5,8 @@
       .tile
     .content
       .col_shop
-        .item(v-for="item in items.slice(0,8)")
+        .item(v-for="item in items.slice(0,8)",
+              :style="{'background-image': 'url('+item.cover+')'}")
           .infos
             .title {{item.title}}
             .price {{item.price}} NTD.
@@ -55,15 +56,18 @@ export default {
     return {
       items: [
         {
-          title: "開瓶器",
-          price: 50
-        },{
           title: "醜奴兒 專輯(實體)",
           price: 400,
+          cover: "/img/06_SHOP/t-shirt.png"
         },{
           title: "紀念 T-SHIRT",
           price: 500,
-          option: ['S','M','L','XL','XXL']
+          option: ['S','M','L','XL','XXL'],
+          cover: "/img/06_SHOP/t-shirt.png"
+        },{
+          title: "開瓶器",
+          price: 50,
+          cover: "/img/06_SHOP/t-shirt.png"
         },{
           title: "紀念 TEST",
           price: 500

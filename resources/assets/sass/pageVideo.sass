@@ -6,6 +6,12 @@
   background-attachment: fixed
   text-align: left
   line-height: 40px
+
+
+  .col_video_selector
+    +grid_8_layout
+
+
   li
 
     display: flex
@@ -42,9 +48,11 @@
       height: 42px
 
   .content
-
+    width: 86%
+    margin-left: 5vmin
+    position: relative
+    padding-top: 6vmin
     +flex_center
-    flex-direction: column
     .top
       +flex_center
       flex-direction: row
