@@ -64,6 +64,21 @@ export default {
           title: "紀念 T-SHIRT",
           price: 500,
           option: ['S','M','L','XL','XXL']
+        },{
+          title: "紀念 TEST",
+          price: 500
+        },{
+          title: "紀念 TEST",
+          price: 500
+        },{
+          title: "紀念 TEST",
+          price: 500
+        },{
+          title: "紀念 TEST",
+          price: 500
+        },{
+          title: "紀念 TEST",
+          price: 500
         }
       ]
     }

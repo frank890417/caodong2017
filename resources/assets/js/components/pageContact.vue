@@ -3,14 +3,18 @@
   .back_img
     .left_img(:style="{transform: `translateY(${(scrollTop-blockY)/3}px)`}")
       .tile
+    h4.copyright Copyright 2017 © 草東沒有派對 No Party For Cao Dong, All right reserved.
+
   .agent
-    p.agent_info ROGE<br>［Booking Agent］<br>LINE ID CaoDong_Official<br>WeChat ID CaoDong_Official<br>nopartyforcaodong@gmail.com
+    p.agent_info 
+      h3 ROGE<br>[Booking Agent］
+      p LINE ID CaoDong_Official<br>WeChat ID CaoDong_Official<br>nopartyforcaodong@gmail.com
   a.platform(v-for="platform in platforms",
     :style="platform_css(platform)",
     :href="platform.link",
     target="_blank")
     img(:src="'/img/07_CONTACT/連結/'+platform.name+'.png'",)
-                 
+  
 
 </template>
 

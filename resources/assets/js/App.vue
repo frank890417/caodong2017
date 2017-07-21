@@ -5,14 +5,13 @@
   pageNews
   pageWorks
   pageVideo
-  pageShop
   pageTour
+  pageShop
   pageContact
   Navbar
   userPanel
   footer
-    blockqoute Copyright 2017 © 草東沒有派對 No Party For Cao Dong, All right reserved.
-
+    
   
 
 </template>

@@ -7,27 +7,23 @@
   background-attachment: fixed
 
   .back_img
-    width: 80%
     height: 90vh
     border-radius: 120px 120px 0px 0px
     background: url("/img/01_INTRO/UP_00.jpg")
     background-size: 90% auto
-    background-position: right bottom
+    background-position: right top
     background-attachment: fixed
 
     @media screen and (min-aspect-ratio: 1/1)
-      background-size: auto 120%
+      background-size: auto 110%
 
     @media screen and (min-aspect-ratio: 2/3)
-      background-size: auto 130%
+      background-size: auto 120%
     
     display: flex
     position: absolute
     // transition: 0.02s
-    
 
-
-    
     .left_img
       height: 90vh
       border-radius: 120px 120px 0px 0px
@@ -42,9 +38,9 @@
     flex-direction: column
 
   .about_text
-    height: 50px
+    height: 40px
     display: block
-    margin-bottom: 20px
+    margin-bottom: 25px
 
   .intro_title
     height: 25px
@@ -53,5 +49,5 @@
   .down_arrow
     margin-top: 50px
     margin-bottom: 50px
-    height: 50px
-  
+    height: 30px
+    opacity: 0.7

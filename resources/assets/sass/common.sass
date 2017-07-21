@@ -29,12 +29,8 @@ p
 @keyframes tv_tile
   0%
     transform: translateY(0px)
-  30%
-    transform: translateY(7px)
-  50%
-    transform: translateY(11px)
   100%
-    transform: translateY(20px)
+    transform: translateY(10px)
 
 .icon
   +size(60px,auto)
@@ -45,25 +41,35 @@ p
   background-size: 100% 10px
   +size(100%)
   z-index: 1
-  animation: tv_tile 10s infinite linear  
+  animation: tv_tile 6s infinite linear  
 
 //每一頁
 .page
   +size(100%,100vh)  
   position: relative
-  background: url("./assets/img/01_INTRO/BG-01.jpg")
+  background: url("/img/00_COMMON/BG-01.jpg")
   background-size: cover
   background-attachment: fixed
 
 
   //左側長條
   .left_img
-    width: 18%
+    width: 17%
     flex-shrink: 0
     height: 100vh
   .content
     width: 84%
 
+//背景大塊
+.back_img
+  width: 85%
+  height: 100vh
+
+  background-size: cover
+  background-position: center bottom
+  background-attachment: fixed
+  display: flex
+  position: absolute
 
 //聲明
 blockqoute

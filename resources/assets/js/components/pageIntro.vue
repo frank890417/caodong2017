@@ -4,7 +4,7 @@
     .left_img
       .tile
     .content
-      img.intro_title(src="/img/00_COMMON/INTRO.png")
+      //img.intro_title(src="/img/00_COMMON/INTRO.png")
       img.about_text(src="/img/01_INTRO/ABOUT/01.png")
       img.about_text(src="/img/01_INTRO/ABOUT/02.png")
       img.about_text(src="/img/01_INTRO/ABOUT/03.png")
