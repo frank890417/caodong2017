@@ -8,7 +8,14 @@
   .agent
     p.agent_info 
       h3 ROGE<br>[Booking Agent］
-      p LINE ID CaoDong_Official<br>WeChat ID CaoDong_Official<br>nopartyforcaodong@gmail.com
+      .row
+        span.pull-left LINE ID
+        span.pull-right CaoDong_Official
+      .row
+        span.pull-left WeChat ID
+        span.pull-right CaoDong_Official
+      .row
+        p nopartyforcaodong@gmail.com
   a.platform(v-for="platform in platforms",
     :style="platform_css(platform)",
     :href="platform.link",

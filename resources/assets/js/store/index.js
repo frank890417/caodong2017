@@ -51,11 +51,15 @@ export default new Vuex.Store({
 
     ],
     memberPanelOpened: false,
-    user: null
+    user: null,
+    nowBlock: ""
   },
   mutations: {
     set_scrollTop(state,value){
       state.scrollTop=value;
+    },
+    set_nowBlock(state,value){
+      state.nowBlock=value;
     },
     scrollTo(state,target){
       $("html,body").animate({scrollTop: $(target).offset().top+2},1000)

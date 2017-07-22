@@ -1,31 +1,30 @@
 <template lang="jade">
 .navPanel.active
-  //pre(v-html="$route.path")
   router-link(to="/")
     img.navItem(src="/img/元件/目錄/HOME.png",
               @click="scrollTo('.pageIndex')",
-                :class="{active: $route.path=='/'}",
+                :class="{active: nowBlock=='pageIndex'}",
                 )
   router-link(to="/intro")
     img.navItem(src="/img/元件/目錄/INTRO.png",
              @click="scrollTo('.pageIntro')",
-              :class="{active: $route.path=='/intro'}")
+              :class="{active: nowBlock=='pageIntro'}")
   router-link(to="/works")
     img.navItem(src="/img/元件/目錄/WORKS.png",
              @click="scrollTo('.pageWorks')",
-              :class="{active: $route.path=='/works'}")
-  router-link(to="/shop")
-    img.navItem(src="/img/元件/目錄/SHOP.png",
-             @click="scrollTo('.pageShop')",
-              :class="{active: $route.path=='/shop'}")
+              :class="{active: nowBlock=='pageWorks'}")
   router-link(to="/tour")
     img.navItem(src="/img/元件/目錄/TOUR.png",
              @click="scrollTo('.pageTour')",
-              :class="{active: $route.path=='/tour'}")
+              :class="{active: nowBlock=='pageTour'}")
+  router-link(to="/shop")
+    img.navItem(src="/img/元件/目錄/SHOP.png",
+             @click="scrollTo('.pageShop')",
+              :class="{active: nowBlock=='pageShop'}")
   router-link(to="/contact")
     img.navItem(src="/img/元件/目錄/CONTACT.png",
              @click="scrollTo('.pageContact')",
-              :class="{active: $route.path=='/contact'}")
+              :class="{active: nowBlock=='pageContact'}")
 
   img.navLogo(src="/img/00_COMMON/LOGO.png",
               :class="{active: scrollTop>indexHeight}")
@@ -49,7 +48,7 @@ export default {
     this.indexHeight=$(".pageIndex").outerHeight()
   },
   computed:{
-    ...mapState(['scrollTop','cart'])
+    ...mapState(['scrollTop','cart','nowBlock'])
   }
 }
 </script>

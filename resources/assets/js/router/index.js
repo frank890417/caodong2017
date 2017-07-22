@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
   let targetEl = ".page"+_.startCase((to.path).split('/')[1]);
   let $targetEl = $(targetEl)
   if ( $targetEl .length>0){
-    $("html,body").animate({scrollTop:  $targetEl .offset().top+2},1000)
+    $("html,body").animate({scrollTop:  $targetEl .offset().top+2},800)
   }
     next();
 })

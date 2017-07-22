@@ -74,14 +74,14 @@ if (lockScroll && $(window).outerHeight() > 800 &&  $(window).outerWidth()  > 10
       // let preClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
       // router.push("/"+preClass.split("page")[1].toLowerCase())
       $("html,body").animate({scrollTop:  $preblock .offset().top+2},1000)
-      setTimeout(()=>scrolling=false,500)
+      setTimeout(()=>scrolling=false,400)
     }
     if ($postblock && direct=='down'){
       
       $("html,body").animate({scrollTop: $postblock.offset().top } ,1000)
       // let postClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
       // router.push("/"+postClass.split("page")[1].toLowerCase())
-      setTimeout(()=>scrolling=false,500)
+      setTimeout(()=>scrolling=false,400)
     }
     
 
@@ -104,8 +104,18 @@ new Vue({
     window.onscroll = (evt) => {
       store.commit('set_scrollTop', window.scrollY);
       if (window.update_scroll) { window.update_scroll(window.scrollY); }
-        // window.update_scroll()
-        // alert("update scroll")
+      
+      var result=""
+      $(".page").each((id,obj)=>{
+        if (window.scrollY > $(obj).offset().top - 150){
+          result = Array.from(obj.classList).find(o=>o.indexOf('page')!=-1 && o!="page");
+        }
+      })  
+      console.log('now block:',result)
+      store.commit('set_nowBlock', result);
     };
+  },
+  computed: {
+    
   }
 })

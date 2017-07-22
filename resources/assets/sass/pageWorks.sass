@@ -44,6 +44,40 @@
         line-height: 30px
 
 
+  .cover
+    // width: 100%
+    // padding-bottom: 100%
+    position: relative
+    .btn_left,.btn_right
+      +ab_center
+      width: 30px
+      cursor: pointer
+      opacity: 0.5
+      +trans
+      &:hover
+        opacity: 1
+    .btn_left
+      left: -15px
+    .btn_right
+      left: initial
+      right: -15px
+    
+  .cover_info
+    +ab_full
+    +ab_center
+    +flex_center
+    +trans
+    opacity: 0
+    &:hover
+      background-color: rgba(black,0.5)
+      opacity: 1
+
+  .cover_container
+    position: relative
+
+  .cover_info
+    
+
   .about_text
     height: 50px
     display: block
