@@ -29,24 +29,20 @@ class SongSeeder extends Seeder
 
           我說得像切身之痛 卻一直在退縮
           從沒想過 原來自己那麼醜陋
-          原來自己那麼醜陋"
+          原來自己那麼醜陋",
+          "preview" => "/audio/preview/mp3/醜奴兒/01 Intro.mp3"
         ],
         [
           "title" => "醜",
           "cover" => "/img/03_WORKS/歌名/醜.png",
-          "lyrics" => "噢多麼美麗的一顆心
-          怎麼會 怎麼會 就變成了一灘爛泥
-          噢多麼單純的一首詩
-          怎麼會 怎麼會 都變成了諷刺
+          "lyrics" => "我試過握著她的手 卻還是一樣寂寞
+          從沒想過 原來自己那麼醜陋
+          原來自己那麼醜陋
 
-          我想要說的 前人們都說過了
-          我想要做的 有錢人都做過了
-          我想要的公平都是不公們虛構的
-
-          噢多麼乾淨的一幅畫
-          怎麼會 怎麼會 充滿了悲傷
-          噢多麼天真的一句話
-          怎麼會 怎麼會 像噩夢一樣"
+          我說得像切身之痛 卻一直在退縮
+          從沒想過 原來自己那麼醜陋
+          原來自己那麼醜陋",
+          "preview" => "/audio/preview/mp3/醜奴兒/02 醜.mp3"
         ],
         [
           "title" => "爛泥",
@@ -63,7 +59,8 @@ class SongSeeder extends Seeder
           噢多麼乾淨的一幅畫
           怎麼會 怎麼會 充滿了悲傷
           噢多麼天真的一句話
-          怎麼會 怎麼會 像噩夢一樣"
+          怎麼會 怎麼會 像噩夢一樣",
+          "preview" => "/audio/preview/mp3/醜奴兒/03 爛泥.mp3"
         ],
         [
           "title" => "勇敢的人",
@@ -84,9 +81,8 @@ class SongSeeder extends Seeder
           反抗的人
 
           所謂的過生活 一輩子他都在躲
-          一直在躲一直在躲 沒有出口沒有出口
-
-          大風吹 Simon Says"
+          一直在躲一直在躲 沒有出口沒有出口",
+          "preview" => "/audio/preview/mp3/醜奴兒/04 勇敢的人.mp3"
         ],
         [
           "title" => "大風吹",
@@ -102,7 +98,8 @@ class SongSeeder extends Seeder
           一樣又醉了 一樣又掉眼淚
           一樣的屈辱 一樣的感覺
           怪罪給時間 它給了起點
-          怪罪給時間 它給了終點"
+          怪罪給時間 它給了終點",
+          "preview" => "/audio/preview/mp3/醜奴兒/05 大風吹.mp3"
         ],
         [
           "title" => "艾瑪",
@@ -116,16 +113,22 @@ class SongSeeder extends Seeder
           妳笑著說我所有的謊言 活不過明天
 
           交換著一種不負責任的畫面
-          試著跟著這些標籤一起改變 改變"
+          試著跟著這些標籤一起改變 改變",
+          "preview" => "/audio/preview/mp3/醜奴兒/06 艾瑪.mp3"
         ],
         [
           "title" => "等",
           "cover" => "/img/03_WORKS/歌名/等.png",
           "lyrics" => "我在等的那部車呢 它會不會又拋錨了
           我在等的那個人呢 祂會不會又不來了
+          
+          I'll wait, I'll wait, I'll keep on waiting.
+          I'll wait, I'll wait, I'll wait for nothing.
 
           你在等的那部車呢 它會不會也拋錨了
-          你在等的那個人呢 祂會不會也不來了"
+          你在等的那個人呢 祂會不會也不來了
+          ",
+          "preview" => "/audio/preview/mp3/醜奴兒/07 等.mp3"
         ],
         [
           "title" => "⻤",
@@ -140,7 +143,8 @@ class SongSeeder extends Seeder
           我躲在夜裡取笑著黑 因為沒有人能殺死鬼
 
           是為了什麼而流著血 是為了誰而流眼淚
-          我躲在夜裡取笑著黑 因為沒有人能殺死鬼"
+          我躲在夜裡取笑著黑 因為沒有人能殺死鬼",
+          "preview" => "/audio/preview/mp3/醜奴兒/08 鬼.mp3"
         ],
         [
           "title" => "在",
@@ -165,7 +169,8 @@ class SongSeeder extends Seeder
           我說 妳這麼說好帥
           她說 要把它們都打敗
           我說 我會一直都在
-          我會一直都"
+          我會一直都",
+          "preview" => "/audio/preview/mp3/醜奴兒/09 在.mp3"
         ],
         [
           "title" => "山海",
@@ -187,7 +192,8 @@ class SongSeeder extends Seeder
           他明白 他明白 我給不起
           於是轉身向山裡走去
           他明白 他明白 我給不起
-          於是轉身向大海走去"
+          於是轉身向大海走去",
+          "preview" => "/audio/preview/mp3/醜奴兒/10 山海.mp3"
         ],
         [
           "title" => "我們",
@@ -202,7 +208,8 @@ class SongSeeder extends Seeder
           我們萬分惋惜的浪費著
           用盡一切換來的紙張
           用盡一切換來的紙張
-          用盡一切"
+          用盡一切",
+          "preview" => "/audio/preview/mp3/醜奴兒/11 我們.mp3"
         ],
         [
           "title" => "情歌",
@@ -219,7 +226,8 @@ class SongSeeder extends Seeder
           但那挫折和恐懼依舊 但那挫折和恐懼依舊
 
           殺了它 順便殺了我 拜託你了
-          殺了它 順便殺了我 拜託你了"
+          殺了它 順便殺了我 拜託你了",
+          "preview" => "/audio/preview/mp3/醜奴兒/12 情歌.mp3"
         ]
       ];
 

@@ -25,6 +25,7 @@ class Songs extends Migration
             $table->text('eng_lyrics')->nullable();
             $table->integer('price')->default(30);
             $table->string('cover',500)->default("");
+            $table->string('preview',500)->default("");
             $table->string('mv',500)->default("");
             $table->timestamps();
 

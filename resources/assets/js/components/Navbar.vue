@@ -8,7 +8,7 @@
   router-link(to="/intro")
     img.navItem(src="/img/元件/目錄/INTRO.png",
              @click="scrollTo('.pageIntro')",
-              :class="{active: nowBlock=='pageIntro'}")
+              :class="{active: nowBlock=='pageIntro' || nowBlock=='pageNews'}")
   router-link(to="/works")
     img.navItem(src="/img/元件/目錄/WORKS.png",
              @click="scrollTo('.pageWorks')",

@@ -10,7 +10,18 @@
           .infos
             .title {{item.title}}
             .price {{item.price}} NTD.
-          .hoverForm
+          .hoverForm.flexColumn
+            .formClothSize.flexRow
+              .btn XS
+              .btn S
+              .btn M
+              .btn L
+              .btn XL
+            .formAmount.flexRow
+              .btn(style="width: 20px") - 
+              .amount 0
+              .btn(style="width: 20px") +
+              
             .btn(@click = "addCart(item)", v-if="!cart.find(o=>o.title==item.title)")
               img.icon(src="/img/元件/ICON/ICON-35.png", alt="" ,title="點擊加入購物車")
               span 購買
