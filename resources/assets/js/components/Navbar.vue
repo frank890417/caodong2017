@@ -27,7 +27,11 @@
               :class="{active: nowBlock=='pageContact'}")
 
   img.navLogo(src="/img/00_COMMON/LOGO.png",
+              @click="scrollTo('.pageIndex')",
               :class="{active: scrollTop>indexHeight}")
+  .btnLeftout
+    img.down_arrow(src="/img/元件/ICON/ICON-08.png",
+                   @click="nav_open=!nav_open")
 
 </template>
 

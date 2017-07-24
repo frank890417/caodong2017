@@ -6,10 +6,11 @@
     .content
       .col_shop
         .item(v-for="item in items.slice(0,8)",
-              :style="{'background-image': 'url('+item.cover+')'}")
+              :style="{'background-image': 'url('+item.cover+')'}",
+              :class="{empty: item.title==''}")
           .infos
-            .title {{item.title}}
             .price {{item.price}} NTD.
+            .title {{item.title}}
           .hoverForm.flexColumn
             .formClothSize.flexRow
               .btn XS
@@ -80,20 +81,20 @@ export default {
           price: 50,
           cover: "/img/06_SHOP/t-shirt.png"
         },{
-          title: "紀念 TEST",
-          price: 500
+          title: "",
+          price: 0
         },{
-          title: "紀念 TEST",
-          price: 500
+          title: "",
+          price: 0
         },{
-          title: "紀念 TEST",
-          price: 500
+          title: "",
+          price: 0
         },{
-          title: "紀念 TEST",
-          price: 500
+          title: "",
+          price: 0
         },{
-          title: "紀念 TEST",
-          price: 500
+          title: "",
+          price: 0
         }
       ]
     }

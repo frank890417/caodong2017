@@ -128,11 +128,15 @@ p
       .hoverForm
         pointer-events: initial
         opacity: 1
-    btn
+
+    &.empty
+      opacity: 0.3
     .infos
       position: absolute
       left: 10px
       bottom: 10px
+      .price
+        font-size: 20px
       +rwd_sm
         bottom: -70px
         left: 0px

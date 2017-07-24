@@ -7,8 +7,10 @@
       .col_video_selector
         .item(v-for="(v,vid) in videos",
               :style="{'background-image': 'url('+v.cover+')'}",
+              :class="{empty: v.title==''}",
               @click="setPlayVideo(vid)")
           .hoverForm  
+          .infos
             h2 {{v.title}}
       video_fullplayer(:youtube_url="videos[playingId].url",
                        :status="video_playing",
@@ -37,7 +39,8 @@ export default {
           title: "山海",
           cover: "http://img.youtube.com/vi/j2311FZWoFQ/0.jpg",
           url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
-        },{
+        },
+        {
           title: "",
           cover: "",
           url: ""

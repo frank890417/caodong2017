@@ -8,6 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     scrollTop: 0,
+    nav_open: false,
     news: [
       {
         date: "2017.01.22",
@@ -52,7 +53,8 @@ export default new Vuex.Store({
     ],
     memberPanelOpened: false,
     user: null,
-    nowBlock: ""
+    nowBlock: "",
+    mobile: false
   },
   mutations: {
     set_scrollTop(state,value){
@@ -69,6 +71,9 @@ export default new Vuex.Store({
     },
     toggleMemberPanel(state){
       state.memberPanelOpened = !state.memberPanelOpened
+    },
+    setMobile(state,value){
+      state.mobile=value
     }
 
   },
