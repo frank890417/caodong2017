@@ -5,11 +5,14 @@
       .tile
     .content
       .col_video_selector
-        .item(v-for="v in videos",
-              :style="{'background-image': 'url('+v.cover+')'}")
+        .item(v-for="(v,vid) in videos",
+              :style="{'background-image': 'url('+v.cover+')'}",
+              @click="setPlayVideo(vid)")
           .hoverForm  
             h2 {{v.title}}
-
+      video_fullplayer(:youtube_url="videos[playingId].url",
+                       :status="video_playing",
+                       @ended="video_playing=false")
       //.video_nav
         img.tag(src="/img/03_WORKS/歌名/山海.png")
         img.tag(src="/img/03_WORKS/歌名/山海.png")
@@ -20,13 +23,15 @@
 </template>
 
 <script>
-
+import video_fullplayer from './video_fullplayer'
 import $ from 'jquery'
 import {mapState} from 'vuex'
 export default {
   data () {
     return {
       blockY: -1,
+      video_playing: false,
+      playingId: 0,
       videos: [
         {
           title: "山海",
@@ -35,31 +40,31 @@ export default {
         },{
           title: "",
           cover: "",
-          url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
+          url: ""
         },{
           title: "",
           cover: "",
-          url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
+          url: ""
         },{
           title: "",
           cover: "",
-          url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
+          url: ""
         },{
           title: "",
           cover: "",
-          url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
+          url: ""
         },{
           title: "",
           cover: "",
-          url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
+          url: ""
         },{
           title: "",
           cover: "",
-          url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
+          url: ""
         },{
           title: "",
           cover: "",
-          url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
+          url: ""
         }
       ]
     }
@@ -69,6 +74,17 @@ export default {
   },
   mounted(){
     this.blockY=$(".pageVideo").offset().top
+  },
+  components: {
+    video_fullplayer
+  },
+  methods: {
+    setPlayVideo(vid){
+      if (this.videos[vid].url){
+        this.video_playing=true;
+        this.playingId=vid;
+      }
+    }
   }
 }
 </script>

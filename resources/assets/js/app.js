@@ -27,7 +27,8 @@ import store from './store'
 import Rx from 'rxjs/Rx'
 // import './assets/sass/_variables.sass'
 import $ from 'jquery'
-
+import VueYouTubeEmbed from 'vue-youtube-embed'
+Vue.use(VueYouTubeEmbed)
 // Vue.config.productionTip = false
 
 // wheelDelta
