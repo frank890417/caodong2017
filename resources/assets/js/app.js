@@ -36,6 +36,7 @@ const mousewheel = Rx.Observable.fromEvent(document, 'mousewheel')
 var lockScroll=true
 var scrolling=false
 var direction = 'up'
+
 if (lockScroll && $(window).outerHeight() > 800 &&  $(window).outerWidth()  > 1000){
   console.log('enable snap');
   // filter delta which bigger than thereshold and filter out twice down/up condition
@@ -47,44 +48,46 @@ if (lockScroll && $(window).outerHeight() > 800 &&  $(window).outerWidth()  > 10
   .throttleTime(500);                               // filter event by 200ms time span
 
   sourcePageNav.subscribe((direct) => {
-    let now_top=$(window).scrollTop()
-    let flag=false
-    let flag2=false
-    direction = direct
-    let $lastlastblock=null
-    let $lastblock=null
-    let $preblock=null
-    let $postblock=null
 
-    $(".page").each((id,obj)=>{
-      if (now_top<$(obj).offset().top){
-        if (!flag){
-          $preblock=$lastlastblock
-          $postblock=$(obj)
-          flag=true
-          scrolling=true
+    if (lockScroll && $(window).outerHeight() > 800 &&  $(window).outerWidth()  > 1000){
+      let now_top=$(window).scrollTop()
+      let flag=false
+      let flag2=false
+      direction = direct
+      let $lastlastblock=null
+      let $lastblock=null
+      let $preblock=null
+      let $postblock=null
+
+      $(".page").each((id,obj)=>{
+        if (now_top<$(obj).offset().top){
+          if (!flag){
+            $preblock=$lastlastblock
+            $postblock=$(obj)
+            flag=true
+            scrolling=true
+          }
         }
+        $lastlastblock=$lastblock
+        $lastblock=$(obj)
+      })  
+
+      if ($preblock && direct=='up'){
+        
+        // let preClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
+        // router.push("/"+preClass.split("page")[1].toLowerCase())
+        $("html,body").animate({scrollTop:  $preblock .offset().top+2},1000)
+        setTimeout(()=>scrolling=false,400)
       }
-      $lastlastblock=$lastblock
-      $lastblock=$(obj)
-    })  
-
-    if ($preblock && direct=='up'){
+      if ($postblock && direct=='down'){
+        
+        $("html,body").animate({scrollTop: $postblock.offset().top } ,1000)
+        // let postClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
+        // router.push("/"+postClass.split("page")[1].toLowerCase())
+        setTimeout(()=>scrolling=false,400)
+      }
       
-      // let preClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
-      // router.push("/"+preClass.split("page")[1].toLowerCase())
-      $("html,body").animate({scrollTop:  $preblock .offset().top+2},1000)
-      setTimeout(()=>scrolling=false,400)
     }
-    if ($postblock && direct=='down'){
-      
-      $("html,body").animate({scrollTop: $postblock.offset().top } ,1000)
-      // let postClass = $preblock.attr("class").split(' ').find((o)=>o.indexOf("page")!=-1 && o!="page"  )
-      // router.push("/"+postClass.split("page")[1].toLowerCase())
-      setTimeout(()=>scrolling=false,400)
-    }
-    
-
   })
 }
 var windowHeight = $(window).outerHeight()

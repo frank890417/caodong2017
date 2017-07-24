@@ -25,12 +25,12 @@
 
 
 
-
+  //頁面內容
   .content
     display: flex
     width: 84%
     align-items: flex-end
-    padding-bottom: 50px
+    padding-bottom: 30px
 
     .left
       width: 45%
@@ -89,6 +89,7 @@
     width: 40%
     margin-top: 30vmin
 
+  //左側專輯
   .col_album
     display: flex
     flex-direction: column
@@ -96,35 +97,28 @@
     align-items: center
 
 
-  .album_cover
-    width: 220px
-    border: solid 1px white
-    margin-bottom: 30px
-    // margin-left: 20px
-    // margin-right: 20px
+    .album_cover
+      width: 250px
+      border: solid 1px white
+      margin-bottom: 30px
+      // margin-left: 20px
+      // margin-right: 20px
 
+  //左側歌名
   .track
-    opacity: 0.55
+    opacity: 0.35
     cursor: pointer
     text-align: center
+    margin-bottom: -5px
     +trans
     img
-      height: 28px
+      height: 50px
     &.active
       opacity: 1
 
-  .btns
-    display: flex
-    justify-content: center
-    align-items: center
-    a
-      color: white
 
-  .right
-    position: relative
-    audio
-      margin-right: 40px
 
+  //右邊歌詞
   .lyrics
     margin-bottom: 30px
     position: absolute
@@ -132,3 +126,19 @@
     left: 50%
     transform: translateX(-50%)
     white-space: nowrap
+  
+  .btns
+    display: flex
+    justify-content: center
+    align-items: center
+    &>*
+      flex-shrink: 0
+      span
+        white-space: nowrap
+    a
+      color: white
+
+  .right
+    position: relative
+    audio
+      margin-right: 40px

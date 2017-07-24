@@ -10,15 +10,15 @@
     height: 80vh
     border-radius: 0px 0px 120px 120px
     background: url("/img/07_CONTACT/UP.jpg")
-    background-size: 80% auto
-    background-position: center center
+    background-size: auto 120%
+    background-position: 200px bottom
     // background-attachment: fixed
     display: flex
     position: absolute
     transition: 0.04s
     &:before
       +pseudo_ab_full
-      background: linear-gradient(rgba(black,0.7) 0%,transparent 50%)
+      background: linear-gradient(rgba(black,0.6) 0%,transparent 50%)
       background-size: 100% 100%
       z-index: 0
       pointer-events: none
@@ -44,14 +44,36 @@
 
 
   .platform
-    position: absolute
+    position: relative
+    display: block
+    margin-top: -5px
     img
-      height: 40px
-    opacity: 0.6
-    cursor: pointer
+      cursor: pointer
+      height: 55px
+
+    opacity: 1
+    // background-color: #fff
     +trans
-    &:hover
-      opacity: 1
+    img:hover
+      filter: invert(80%)
+    &:nth-child(2)
+      margin-top: -15px
+      margin-left: 170px
+    &:nth-child(4)
+      margin-top: -20px
+      margin-left: 170px
+    &:nth-child(6)
+      margin-top: -20px
+      margin-left: 170px
+    &:nth-child(8)
+      margin-top: -20px
+      margin-left: 170px
+    &:nth-child(10)
+      margin-top: -20px
+      margin-left: 180px
+    &:nth-child(11)
+      margin-top: -20px
+      margin-left: 300px
 
   .content
     +flex_center
@@ -70,3 +92,12 @@
     font-size: 15px
     color: white
     white-space: nowrap
+
+  .platforms
+    position: absolute
+    // height: 100%
+    width: 37vw
+    // bottom: -200px 
+    bottom: 20px
+    left: 50px
+

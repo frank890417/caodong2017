@@ -108,7 +108,6 @@ class SongSeeder extends Seeder
           試著跟著這些虛偽一起改變
           改變
 
-          Hypocrisy…
           妳笑著說我所擁有的一切 也都是虛偽
           妳笑著說我所有的謊言 活不過明天
 

@@ -39,15 +39,15 @@
         .btns
           //pre {{song}}
           //h2 {{song.preview}}
-          audio(:src="nowAlbum.songs[playingId].preview" controls)
+          audio.trackPreview(:src="nowAlbum.songs[playingId].preview" controls)
           div(@click = "addCart(nowAlbum.songs[playingId])", v-if="!cart.find(o=>o.title==nowAlbum.songs[playingId].title)") 
             img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
-            span 購買單曲
+            | 購買單曲
           div(@click = "addCart(nowAlbum.songs[playingId])", v-else) - 
-            span 移除
+            | 移除
           router-link(to="/shop") 
             img.icon(src="/img/元件/ICON/ICON-34.png", alt="") 
-            span 更多商品
+            | 更多商品
 
 
       
@@ -99,6 +99,13 @@ export default {
     ...mapState(['scrollTop','news','cart']),
     nowAlbum(){
       return this.albums[this.now_album_id]
+    }
+  },
+  watch: {
+    playingId(){
+      Vue.nextTick(()=>{
+        $("audio.trackPreview")[0].play()
+      })
     }
   }
 }
