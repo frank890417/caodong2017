@@ -6,7 +6,8 @@ html,body
   text-align: left
   line-height: 40px
   background-color: black
-  font-size: 14px
+  font-size: 18px
+  font-weight: 300
   letter-spacing: 2px
   line-height: 25px
 
@@ -25,7 +26,7 @@ p
 
 
 *
-  font-family: 'Songti TC','Noto Sans TC','微軟正黑體','Avenir', Helvetica, Arial, sans-serif
+  font-family: 'cwTeXFangSong','Songti TC','微軟正黑體','Avenir', Helvetica, Arial, sans-serif
 
 @keyframes tv_tile
   0%
@@ -66,11 +67,16 @@ p
     width: 17%
     flex-shrink: 0
     height: 100vh
+    +trans
 
     +rwd_sm
+      // position: fixed
       position: absolute
       left: -200px
-  
+      height: 100%
+      border-radius: 0px
+
+
   .content
     width: 84%
     +rwd_sm
@@ -111,6 +117,9 @@ p
     flex-wrap: nowrap
     overflow-x: scroll
     white-space: nowrap
+
+  .mobile .item.empty
+    display: none
 
   //項目
   .item

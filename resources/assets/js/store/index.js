@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     scrollTop: 0,
-    nav_open: false,
+    navOpen: false,
     news: [
       {
         date: "2017.01.22",
@@ -74,6 +74,9 @@ export default new Vuex.Store({
     },
     setMobile(state,value){
       state.mobile=value
+    },
+    toggleNavOpen(state,value){
+      state.navOpen=!state.navOpen
     }
 
   },

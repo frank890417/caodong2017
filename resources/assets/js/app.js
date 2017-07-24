@@ -92,6 +92,8 @@ if (lockScroll && $(window).outerHeight() > 800 &&  $(window).outerWidth()  > 10
   })
 }
 var windowHeight = $(window).outerHeight()
+var windowWidth = $(window).outerWidth()
+import {mapState,mapMutations,mapActions} from 'vuex'
 // $(window).bind('mousewheel', (event) => {
 //   // if ( windowHeight > 850) {
 //     event.preventDefault();
@@ -118,8 +120,15 @@ new Vue({
       console.log('now block:',result)
       store.commit('set_nowBlock', result);
     };
+
+    if (windowWidth<799){
+      this.setMobile(true) 
+    }
   },
   computed: {
-    
+    ...mapState(['mobile'])
+  },
+  methods: {
+    ...mapMutations(['setMobile'])
   }
 })

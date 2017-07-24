@@ -1,5 +1,5 @@
 <template lang="jade">
-.navPanel.active(:class="{nav_open: nav_open}")
+.navPanel.active
   router-link(to="/")
     img.navItem(src="/img/元件/目錄/HOME.png",
               @click="scrollTo('.pageIndex')",
@@ -31,7 +31,7 @@
               :class="{active: scrollTop>indexHeight}")
   .btnLeftout
     img.down_arrow(src="/img/元件/ICON/ICON-08.png",
-                   @click="nav_open=!nav_open")
+                   @click="toggleNavOpen")
 
 </template>
 
@@ -42,18 +42,17 @@ export default {
   data () {
     return {
       indexHeight: -1,
-      nav_open: false
     }
   },
   methods: {
-    ...mapMutations(['scrollTo']),
+    ...mapMutations(['scrollTo','toggleNavOpen']),
     ...mapActions(['checkOut'])
   },
   mounted(){
     this.indexHeight=$(".pageIndex").outerHeight()
   },
   computed:{
-    ...mapState(['scrollTop','cart','nowBlock'])
+    ...mapState(['scrollTop','cart','nowBlock','navOpen'])
   }
 }
 </script>

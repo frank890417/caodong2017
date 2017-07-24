@@ -1,5 +1,5 @@
 <template lang="jade">
-#fullpage
+#fullpage(:class="{navOpen: navOpen, mobile: mobile}")
   pageIndex     
   pageIntro
   pageNews
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import {mapState,mapMutations,mapActions} from 'vuex'
 import pageIndex from './components/pageIndex'
 import pageIntro from './components/pageIntro'
 import pageNews from './components/pageNews'
@@ -37,6 +38,9 @@ export default {
     // $('#fullpage').fullpage({
     //   duration: 1000
     // })
+  },
+  computed:{
+    ...mapState(["navOpen","mobile"])
   }
 }
 </script>
