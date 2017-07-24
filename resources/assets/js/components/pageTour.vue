@@ -4,14 +4,16 @@
     .left_img
       .tile
     .content
-      .tourbox(v-for="tour in tourdata",
-               :class="'size'+tour.size",
-               :style="{transform:  `translateY(${(scrollTop-blockY)/(14-toZindex(tour)) }px)`}")
-        .date {{tour.date}}
-        .date_eng {{tour.date_eng}}  &nbsp;
-        .weekday {{tour.weekday}}
-        .hold {{tour.hold}}
-        .place {{tour.place}}
+      h2 巡迴
+      .tours
+        .tourbox(v-for="tour in tourdata",
+                :class="'size'+tour.size",
+                :style="{transform:  `translateY(${(scrollTop-blockY)/(14-toZindex(tour)) }px)`}")
+          .date {{tour.date}}
+          .date_eng {{tour.date_eng}}  &nbsp;
+          .weekday {{tour.weekday}}
+          .hold {{tour.hold}}
+          .place {{tour.place}}
 
 
       

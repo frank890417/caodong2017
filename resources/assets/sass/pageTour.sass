@@ -66,14 +66,22 @@
   .content
 
     +flex_center
-    flex-direction: row
-    overflow-x: scroll
+    flex-direction: column
+    align-items: flex-start
     // justify-content: space-around
     .top
       +flex_center
       flex-direction: row
       align-items: flex-start
       justify-content: flex-start
+
+  .tours
+    +flex_center
+    flex-direction: row
+    justify-content: space-between
+    +rwd_sm
+      overflow-x: scroll
+    
 
   .about_text
     height: 50px
