@@ -41,9 +41,6 @@ p
   display: flex
   flex-direction: column
 
-
-
-
 .icon
   +size(60px,auto)
 
@@ -64,7 +61,6 @@ p
   background-attachment: fixed
   min-height: 900px
 
-
   //左側長條
   .left_img
     width: 17%
@@ -77,6 +73,22 @@ p
   
   .content
     width: 84%
+    +rwd_sm
+      width: 100%
+      
+
+//背景大塊
+.back_img
+  width: 85%
+  height: 100vh
+
+  background-size: cover
+  background-position: center bottom
+  background-attachment: fixed
+  display: flex
+  position: absolute
+  +rwd_sm
+    width: 100%
 
 //------------------------------------
 //grid layout for shop and video page
@@ -88,6 +100,17 @@ p
   flex-direction: row
   flex-wrap: wrap
   min-height: 450px
+  padding-left: 50px
+  padding-right: 50px
+
+  +rwd_sm
+    height: 300px
+    width: 100vw
+    margin: 0
+    display: block
+    flex-wrap: nowrap
+    overflow-x: scroll
+    white-space: nowrap
 
   //項目
   .item
@@ -110,6 +133,9 @@ p
       position: absolute
       left: 10px
       bottom: 10px
+      +rwd_sm
+        bottom: -70px
+        left: 0px
     .hoverForm
       pointer-events: none
       opacity: 0
@@ -118,17 +144,14 @@ p
       +trans
       background-color: rgba(black,0.7)
 
+    +rwd_sm
+      display: inline-block
+      
+      margin: 0
+      // margin-bottom: 10px
+      margin-right: 20px
 
-//背景大塊
-.back_img
-  width: 85%
-  height: 100vh
 
-  background-size: cover
-  background-position: center bottom
-  background-attachment: fixed
-  display: flex
-  position: absolute
 
 //聲明
 blockqoute

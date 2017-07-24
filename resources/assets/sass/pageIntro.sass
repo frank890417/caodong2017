@@ -6,6 +6,9 @@
   align-items: flex-end
   background-attachment: fixed
 
+  +rwd_sm
+    min-height: 1000px
+
   .back_img
     height: 90vh
     border-radius: 120px 120px 0px 0px
@@ -13,6 +16,8 @@
     background-size: 90% auto
     background-position: right top
     background-attachment: fixed
+    background-repeat: no-repeat
+    object-fit: fill
 
     @media screen and (min-aspect-ratio: 1/1)
       background-size: auto 110%
@@ -24,6 +29,15 @@
     position: absolute
     // transition: 0.02s
 
+    +rwd_sm
+      min-height: 1000px
+      background-size: auto 120%
+      background-position: center top
+      // background-attachment: normal
+      border-radius: 0px
+      width: 100%
+      
+
     .left_img
       height: 90vh
       border-radius: 120px 120px 0px 0px
@@ -31,10 +45,10 @@
       background-size: 1500px auto
       background-position: center center  
       overflow: hidden
+      
 
   .content
     +flex_center
-    width: 86%
     flex-direction: column
 
   .about_text

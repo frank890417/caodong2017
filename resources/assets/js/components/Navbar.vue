@@ -1,5 +1,5 @@
 <template lang="jade">
-.navPanel.active
+.navPanel.active(:class="{nav_open: nav_open}")
   router-link(to="/")
     img.navItem(src="/img/元件/目錄/HOME.png",
               @click="scrollTo('.pageIndex')",
@@ -12,7 +12,7 @@
   router-link(to="/works")
     img.navItem(src="/img/元件/目錄/WORKS.png",
              @click="scrollTo('.pageWorks')",
-              :class="{active: nowBlock=='pageWorks'}")
+              :class="{active: nowBlock=='pageWorks' || nowBlock=='pageVideo'}")
   router-link(to="/tour")
     img.navItem(src="/img/元件/目錄/TOUR.png",
              @click="scrollTo('.pageTour')",
@@ -37,7 +37,8 @@ import $ from 'jquery'
 export default {
   data () {
     return {
-      indexHeight: -1
+      indexHeight: -1,
+      nav_open: false
     }
   },
   methods: {
