@@ -124,6 +124,9 @@ new Vue({
     if (windowWidth<799){
       this.setMobile(true) 
     }
+    $(window).resize(()=>{
+      this.setMobile(windowWidth<799) 
+    })
   },
   computed: {
     ...mapState(['mobile'])

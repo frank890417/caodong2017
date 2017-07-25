@@ -4,7 +4,7 @@
     .left_img
       .tile
     .content
-      h2.pageTitle 影音
+      h2.pageTitle 最新影音
       .col_video_selector
         .item(v-for="(v,vid) in videos",
               :style="{'background-image': 'url('+v.cover+')'}",
@@ -12,7 +12,8 @@
               @click="setPlayVideo(vid)")
           .hoverForm  
           .infos
-            h2 {{v.title}}
+            img(v-if="v.titlePic", :src="v.titlePic" , style="height: 50px")
+            h2(v-else) {{v.title}}
       video_fullplayer(:youtube_url="videos[playingId].url",
                        :status="video_playing",
                        @ended="video_playing=false")
@@ -38,6 +39,7 @@ export default {
       videos: [
         {
           title: "山海",
+          titlePic: "/img/元件/歌名/山海.png",
           cover: "http://img.youtube.com/vi/j2311FZWoFQ/0.jpg",
           url: "https://www.youtube.com/embed/j2311FZWoFQ?rel=0"
         },

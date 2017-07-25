@@ -97,6 +97,13 @@
 
   .fullTour
     position: relative
+    +rwd_sm
+      overflow-y: scroll
+      &>*:first-child
+        margin-top: 100px
+      &>*:last-child
+        margin-bottom: 100px
+
     h2
       font-size: 40px
     .btnLeft,.btnRight

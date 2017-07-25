@@ -6,16 +6,16 @@
         h3 會員專區
         h5 墨雨設計 會員您好。
         ul.navs
-          li.nav(@click="logout")
+          li.nav(@click="logout", v-if="user")
             img.icon(src="/img/元件/ICON/ICON-13.png", alt="")
             span 登出
           li.nav( @click="managePaging='cart'")
             img.icon(src="/img/元件/ICON/ICON-45.png", alt="")
             span 購物車
-          //li.nav(@click="managePaging='data'")
+          li.nav(@click="managePaging='data'")
             img.icon(src="/img/元件/ICON/ICON-33.png", alt="")
             span 資料修改
-          //li.nav(@click="managePaging='reord'")
+          li.nav(@click="managePaging='reord'")
             img.icon(src="/img/元件/ICON/ICON-36.png", alt="")
             span 訂單查詢
         .navFixed
@@ -150,7 +150,7 @@ export default {
     this.indexHeight=$(".pageIndex").outerHeight()
   },
   computed:{
-    ...mapState(['scrollTop','cart','memberPanelOpened']),
+    ...mapState(['scrollTop','cart','memberPanelOpened','user']),
     totalPrice(){
       return this.cart.reduce((total,item)=>(total+=item.price*(item.count?item.count:1)),0)
     }
