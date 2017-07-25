@@ -83,7 +83,7 @@ export default new Vuex.Store({
       state.cart.push(item)
     },
     remove_buy_item(state,item){
-      state.cart=state.cart.filter(o=>o.title==item.title)
+      state.cart=state.cart.filter(o=>o.title!=item.title)
     },
     toggleMemberPanel(state){
       state.memberPanelOpened = !state.memberPanelOpened

@@ -26,7 +26,7 @@
             .btn(@click = "addCart(item)", v-if="!cart.find(o=>o.title==item.title)")
               img.icon(src="/img/元件/ICON/ICON-35.png", alt="" ,title="點擊加入購物車")
               span 購買
-            .btn(@click = "addCart(item)", v-else) - 移除
+            .btn(@click = "remove_buy_item(item)", v-else) - 移除
       .userControl
         ul.nav_paging
           li.btnFirst <<
@@ -58,7 +58,7 @@ export default {
         this.add_buy_item(obj)
       }
     },
-    ...mapMutations(['add_buy_item','checkout','toggleMemberPanel']),
+    ...mapMutations(['add_buy_item','checkout','toggleMemberPanel','remove_buy_item']),
     ...mapActions(['checkOut']),
     replaceBr(text){
       return text.replace(/(?:\r\n|\r|\n)/g,"<br>")
