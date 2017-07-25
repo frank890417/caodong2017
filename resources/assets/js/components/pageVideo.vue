@@ -4,6 +4,7 @@
     .left_img
       .tile
     .content
+      h2.pageTitle 影音
       .col_video_selector
         .item(v-for="(v,vid) in videos",
               :style="{'background-image': 'url('+v.cover+')'}",

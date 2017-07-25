@@ -20,9 +20,12 @@
             .cover_info
               .title {{nowAlbum.title}}
               .eng {{nowAlbum.eng}} 
-              div(@click = "addCart(album)", v-if="!cart.find(o=>o.title==album.title)") 
+              div(@click = "addCart(nowAlbum)", v-if="!cart.find(o=>o.title==nowAlbum.title)") 
                 img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
                 span 購買專輯
+              div(@click = "remove_buy_item(nowAlbum)", v-else) - 
+                img.icon(src="/img/元件/ICON/ICON-27.png", alt="")
+                | 移除專輯
           //, v-if="now_album_id>0"
           .tracks
           .track(v-for="(song,id) in nowAlbum.songs",
@@ -40,11 +43,13 @@
           //pre {{song}}
           //h2 {{song.preview}}
           audio.trackPreview(:src="nowAlbum.songs[playingId].preview" controls)
-          div(@click = "addCart(nowAlbum.songs[playingId])", v-if="!cart.find(o=>o.title==nowAlbum.songs[playingId].title)") 
+          div.btnBuy(@click = "addCart(nowAlbum.songs[playingId])", v-if="!cart.find(o=>o.title==nowAlbum.songs[playingId].title)") 
             img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
             | 購買單曲
-          div(@click = "addCart(nowAlbum.songs[playingId])", v-else) - 
-            | 移除
+          div.btnBuy(@click = "remove_buy_item(nowAlbum.songs[playingId])", v-else)
+            img.icon(src="/img/元件/ICON/ICON-27.png", alt="")
+            | 移除單曲
+
           router-link(to="/shop") 
             img.icon(src="/img/元件/ICON/ICON-34.png", alt="") 
             | 更多商品
@@ -74,13 +79,12 @@ export default {
     
   },
   methods: {
-    ...mapMutations(['toggleMemberPanel']),
+    ...mapMutations(['toggleMemberPanel','add_buy_item','checkout','remove_buy_item']),
     addCart(obj){
       if (!this.cart.find(o=>o.title==obj.title) ){
         this.add_buy_item(obj)
       }
     },
-    ...mapMutations(['add_buy_item','checkout']),
     ...mapActions(['checkOut']),
     replaceBr(text){
       return text.replace(/(?:\r\n|\r|\n)/g,"<br>")

@@ -1,7 +1,6 @@
 <template lang="jade">
 .page.pageNews.section
   .back_img
-
     .left_img
       .tile
     .content
@@ -21,17 +20,25 @@
           .btn.btn_down(@click="newspage+=1")
             img(src="/img/元件/ICON/ICON-53.png")
           transition-group(name="fade-delay", mode="out-in")
-            li(v-for="(a_news,news_id) in news.slice(newspage,newspage+6)",
-              :key="news_id")
+            li(v-for="(a_news,newsId) in news.slice(newspage,newspage+6)",
+              :key="newsId")
               .date {{a_news.date}}
-              .news_content(v-html="a_news.content")
-        
+              .news_title(v-html="a_news.title",
+              @click="newsOpen=true; nowNewsId=newsId")
+  fullPage(:status="newsOpen",
+            @ended="newsClose")
+    .fullNewsContainer
+      h2 {{news[nowNewsId].title}}
+      h4 {{news[nowNewsId].date}}
+      hr
+      p(v-html="news[nowNewsId].content")
 </template>
 
 <script>
 
 import $ from 'jquery'
 import {mapState} from 'vuex'
+import fullPage from './fullPage'
 
 export default {
   name: 'pageNews',
@@ -39,7 +46,9 @@ export default {
     return {
       // abouttexts: files,
       blockY: -1,
-      newspage: 0
+      newspage: 0,
+      newsOpen: false,
+      nowNewsId: 0
     }
   },
   computed:{
@@ -47,6 +56,14 @@ export default {
   },
   mounted(){
     this.blockY=$(".pageNews").offset().top
+  },
+  components: {
+    fullPage
+  },
+  methods: {
+    newsClose(){
+      this.newsOpen=false
+    }
   }
 }
 </script>

@@ -44,14 +44,15 @@ class HomeController extends Controller
         $totalPrice = 0;
 
         foreach ($songs->toArray() as $key => $value) {
+            $amount = $value['count']?$value['count']:1;
             $item=[ 
                     'Name' => $value['title'], 
                     'Price' => $value['price'],
                     'Currency' => "元",
-                    'Quantity' => (int) "1", 
+                    'Quantity' => (int) $amount, 
                     'URL' => "dedwed"
             ];
-            $totalPrice += $value['price'];
+            $totalPrice += $value['price'] * $amount;
 
             //訂單的商品資料
             array_push(Ecpay::i()->Send['Items'], $item);
@@ -90,14 +91,15 @@ class HomeController extends Controller
         $totalPrice = 0;
 
         foreach ($songs as $key => $value) {
+            $amount = array_key_exists("count",$value)?$value['count']:1;
             $item=[ 
                     'Name' => $value['title'], 
                     'Price' => $value['price'],
                     'Currency' => "元",
-                    'Quantity' => (int) "1", 
+                    'Quantity' => (int) $amount, 
                     'URL' => "dedwed"
             ];
-            $totalPrice += $value['price'];
+            $totalPrice += $value['price'] * $amount;
 
             //訂單的商品資料
             array_push(Ecpay::i()->Send['Items'], $item);

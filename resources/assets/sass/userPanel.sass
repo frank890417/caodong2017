@@ -48,25 +48,32 @@
 
     //購物車清單
     .buyCart
+        
+        li
+            list-style: none
         .buyItem
             display: flex
-            border-bottom: solid 1px white
-            padding: 5px 10px
+            padding: 5px 0px
             display: flex
             justify-content: space-between
             font-size: 16px
+
             .price
                 span
                     display: inline-block
             .textPrice
                 margin-right: 10px
 
+            &.total
+                font-size: 20px
+                border-top: solid 1px white
+                padding-top: 20px
 
 .fixedBtns
     position: fixed
     z-index: 1000
-    right: 80px
-    top: 80px
+    right: 5%
+    top: 5%
     display: flex
     list-style: none
 

@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    
+     <meta property="og:title" content="草東沒有派對 No Party For Cao Dong" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://caodong2017.monoame.com/img/og.jpg" />
+    <meta property="og:description" content="破舊揚聲器裡那類比聲響 呢喃哼唱伴隨熟識的節奏 而語句及旨意皆模糊不清 這裡沒有派對" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>草東沒有派對 No Party For Cao Dong</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -32,14 +37,14 @@
                             Logout
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+                       
                     </li>
                 </ul>
             </li>
         @endif -->
-    
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
         <!-- <App/>  -->
         <router-view/> 
     </div>

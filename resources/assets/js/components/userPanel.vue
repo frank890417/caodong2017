@@ -6,33 +6,43 @@
         h3 會員專區
         h5 墨雨設計 會員您好。
         ul.navs
-          li.nav 
+          li.nav(@click="logout")
             img.icon(src="/img/元件/ICON/ICON-13.png", alt="")
             span 登出
           li.nav( @click="managePaging='cart'")
             img.icon(src="/img/元件/ICON/ICON-45.png", alt="")
             span 購物車
-          li.nav(@click="managePaging='data'")
+          //li.nav(@click="managePaging='data'")
             img.icon(src="/img/元件/ICON/ICON-33.png", alt="")
             span 資料修改
-          li.nav(@click="managePaging='reord'")
+          //li.nav(@click="managePaging='reord'")
             img.icon(src="/img/元件/ICON/ICON-36.png", alt="")
             span 訂單查詢
         .navFixed
         transition-group(name="fade-delay",mode="out-in")
           .subPanel(v-if="managePaging=='cart'", key='cart')
             h4 購物車
-            ul.buyCart
-              li.buyItem(v-for="(item,itemId) in cart")
+            transition-group.buyCart(tag="ul" , name="fade-delay")
+              li.buyItem(v-for="(item,itemId) in cart" ,
+                         :key="itemId")
                 .name {{itemId+1}}. {{item.title}}
                 
                 .price 
                   span.textPrice {{item.price}}元
                   span.textCount x{{item.count?item.count:1}}
-              li.buyItem.total
+                  .hoverOpacity.pull-right(@click="cart.splice(itemId,1)")
+                    img.icon(src="/img/元件/ICON/ICON-09.png", alt="", style="width: 20px")
+
+              
+              li.buyItem(:key="-2")
+                br
+                br
+              li.buyItem.total(:key="-1")
                 .name 總計
                 .price {{totalPrice}}元
-            .btn(@click="checkOut") 結帳
+            div.text-right(@click="checkOut") 
+              img.icon(src="/img/元件/ICON/ICON-06.png", alt="")
+              | 結帳
           .subPanel(v-if="managePaging=='data'", key='data')
             .form-group(:class="{'has-error' : hasErrors.name}")
               label.col-md-4.control-label(for='name') Name
@@ -128,7 +138,13 @@ export default {
                 }
             }
         });
+    },
+    logout(){
+      document.getElementById('logout-form').submit()
+      console.log("click logout")
     }
+    
+
   },
   mounted(){
     this.indexHeight=$(".pageIndex").outerHeight()
@@ -136,7 +152,7 @@ export default {
   computed:{
     ...mapState(['scrollTop','cart','memberPanelOpened']),
     totalPrice(){
-      return _.sumBy(this.cart,'price');
+      return this.cart.reduce((total,item)=>(total+=item.price*(item.count?item.count:1)),0)
     }
   }
 }

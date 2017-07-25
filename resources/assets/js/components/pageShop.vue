@@ -5,23 +5,23 @@
       .tile
     .content
       .col_shop
-        .item(v-for="item in items.slice(0,8)",
+        .item(v-for="(item,itemId) in items.slice(0,8)",
               :style="{'background-image': 'url('+item.cover+')'}",
               :class="{empty: item.title==''}")
           .infos
             .price {{item.price}} NTD.
             .title {{item.title}}
           .hoverForm.flexColumn
-            .formClothSize.flexRow
+            .formClothSize.flexRow(v-if="item.type=='t-shirt'")
               .btn XS
               .btn S
               .btn M
               .btn L
               .btn XL
             .formAmount.flexRow
-              .btn(style="width: 20px") - 
-              .amount 0
-              .btn(style="width: 20px") +
+              .btn(style="width: 20px", @click="deltaItemCount(item,-1)") - 
+              .amount {{item.count}}
+              .btn(style="width: 20px", @click="deltaItemCount(item,1)") +
               
             .btn(@click = "addCart(item)", v-if="!cart.find(o=>o.title==item.title)")
               img.icon(src="/img/元件/ICON/ICON-35.png", alt="" ,title="點擊加入購物車")
@@ -62,6 +62,18 @@ export default {
     ...mapActions(['checkOut']),
     replaceBr(text){
       return text.replace(/(?:\r\n|\r|\n)/g,"<br>")
+    },
+    deltaItemCount(item,d){
+      if (!item.count){
+        Vue.set(item,"count",0)
+      }
+      var nowValue=item.count
+      if (nowValue+d>0 && d<0){
+        item.count+=d
+      }  
+      if (nowValue+d<this.items.length-1 && d>0){
+        item.count+=d
+      }     
     }
   },
   data () {
@@ -70,16 +82,19 @@ export default {
         {
           title: "醜奴兒 專輯(實體)",
           price: 400,
-          cover: "/img/06_SHOP/t-shirt.png"
+          cover: "/img/06_SHOP/t-shirt.png",
+          type: "other"
         },{
           title: "紀念 T-SHIRT",
           price: 500,
           option: ['S','M','L','XL','XXL'],
-          cover: "/img/06_SHOP/t-shirt.png"
+          cover: "/img/06_SHOP/t-shirt.png",
+          type: "t-shirt"
         },{
           title: "開瓶器",
           price: 50,
-          cover: "/img/06_SHOP/t-shirt.png"
+          cover: "/img/06_SHOP/t-shirt.png",
+          type: "other"
         },{
           title: "",
           price: 0

@@ -4,7 +4,7 @@
   align-items: flex-end
   background-attachment: fixed
   text-align: left
-  line-height: 40px
+  // line-height: 40px
   li
 
     display: flex
@@ -79,6 +79,7 @@
     +flex_center
     flex-direction: row
     justify-content: space-between
+    padding-left: 50px
     +rwd_sm
       overflow-x: scroll
     
@@ -93,3 +94,16 @@
   .right_2
     width: 40%
     margin-top: 30vmin
+
+  .fullTour
+    position: relative
+    h2
+      font-size: 40px
+    .btnLeft,.btnRight
+      img
+        width: 30px
+      +ab_center
+      left: -40px
+    .btnRight
+      left: initial
+      right: -80px

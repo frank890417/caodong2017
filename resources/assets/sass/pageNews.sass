@@ -8,6 +8,11 @@
   background-attachment: fixed
   
   
+  .fullNewsContainer
+    padding: 20px
+    text-align: left
+    p
+      max-width: 550px
 
   .back_img    
     .left_img
@@ -22,26 +27,28 @@
 
 
   .content
-    // padding-left: 30px
-    padding-right: 30px
-    letter-spacing: 0px
+    // padding-left: 60px
+    // padding-right: 60px
+    margin-left: 50px
+    letter-spacing: 1px
     box-sizing: border-box
-    transform: translateX(100px)
+    // transform: translateX(100px)
     +flex_center
     +rwd_sm
       justify-content: flex-start
       align-items: flex-start
       padding-left: 0
       padding-right: 0
+      margin-left: 0px
       transform: translateX(0px)
       width: calc(100vw - 50px)
     
-      .news_cover
-        width: calc(100% - 50px)
-        float: right
-        
-        +rwd_sm
-          width: 100%
+    .news_cover
+      width: calc(100% - 100px)
+      float: right
+      
+      +rwd_sm
+        width: 100%
           
 
   .top
@@ -55,7 +62,7 @@
     padding: 0
     // font-weight: 500
     position: absolute
-    width: 380px
+    width: 400px
     bottom: -200px
     left: 0
     background: linear-gradient(180deg, #221816 0% , rgba(#221816,0.8) 60% , rgba(#221816,0) 100%)
@@ -91,7 +98,12 @@
       display: flex
       margin-bottom: 20px
       color: rgba(white,0.7)
-      .news_content
+      cursor: pointer
+      opaicty: 0.7
+      +trans
+      &:hover
+        opacity: 1
+      .news_title
         //color: rgba(white,0.7)
       .date
         flex-shrink: 0

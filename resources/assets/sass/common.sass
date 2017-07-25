@@ -7,15 +7,18 @@ html,body
   line-height: 40px
   background-color: black
   font-size: 16px
-  font-weight: 600
-  letter-spacing: 2px
-  line-height: 25px
+  font-weight: 300
+  letter-spacing: 3px
+  line-height: 27px
+
+h1,h2,h3,h4,h5,h6
+  font-weight: 500
 
 p
   text-align: left
   font-weight: 300
   color: white
-  letter-spacing: 1px
+  letter-spacing: 4px
 
 
 #app 
@@ -26,8 +29,7 @@ p
 
 
 *
-  font-family: 'cwTeXMing','Songti TC','微軟正黑體','Avenir', Helvetica, Arial, sans-serif
-
+  font-family: 'sans-serif','cwTeXMing','Songti TC','微軟正黑體','Avenir', Helvetica
 @keyframes tv_tile
   0%
     transform: translateY(0px)
@@ -52,6 +54,8 @@ p
   +size(100%)
   z-index: 1
   animation: tv_tile 6s infinite linear  
+
+
 
 //每一頁
 .page
@@ -79,9 +83,21 @@ p
 
   .content
     width: 84%
+    
     +rwd_sm
       width: 100%
       
+  .pageTitle
+    padding-left: 40px
+    margin-bottom: 40px
+
+//透明hover效果
+.hoverOpacity
+  opacity: 0.6
+  cursor: pointer
+  +trans
+  &:hover
+    opacity: 1
 
 //背景大塊
 .back_img
