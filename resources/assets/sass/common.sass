@@ -93,7 +93,7 @@ p
 
 //透明hover效果
 .hoverOpacity
-  opacity: 0.6
+  opacity: 0.7
   cursor: pointer
   +trans
   &:hover
@@ -115,6 +115,12 @@ p
 //------------------------------------
 //grid layout for shop and video page
 
+
+.mobile .item.empty
+  display: none !important
+
+
+
 @mixin grid_8_layout
   // border: solid 1px white
   display: flex
@@ -133,9 +139,6 @@ p
     flex-wrap: nowrap
     overflow-x: scroll
     white-space: nowrap
-
-  .mobile .item.empty
-    display: none
 
   //項目
   .item

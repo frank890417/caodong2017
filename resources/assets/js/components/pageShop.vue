@@ -36,14 +36,39 @@
         .control
           .btnBuycart(@click='toggleMemberPanel')
             span 購物車
-          .btnDetail
+          .btnDetail(@click="InformOpen=true")
             span 購買須知
+  
+  fullPage(:status="InformOpen",
+            @ended="InformOpen=false")
+    .fullInformContainer
+      .fullContent
+        h2 購買須知
+        hr
+        p 銷售地區：<br>
+          | 支援國際運送，買家可以信用卡或PAYPAL付款，可選適合您的送貨方式，並可按右上角幣值按鈕選取當地幣值作參考價格。<br>
+          | <br>
+          | 購買流程：<br>
+          | 1.把選購貨物加入購物車，並按「訂單結賬」下單。<br>
+          | 2.清晰填寫個人資料，並重覆核對清楚。<br>
+          | 3.按「前往結賬」完成下單，該頁會顯示訂單資料及入數賬戶資料。<br>
+          | 4.同時，您的郵箱會收到下單通知書，同樣會顯示訂單資料及入數賬戶資料，並有「訂單連結」的按鈕。<br>
+          | 5.入數後，按郵件中的「訂單連結」，並透過「店主和顧客訂單通訊」把入賬通知書傳給本店。<br>
+          | 6.48小時內會收到付款狀態轉為「已付款」的郵件，這代表本店已收到您的款項。<br>
+          | 7.耐心等候發貨，發貨後，會收到發貨郵件通知。<br>
+          | 8.等候收取郵包，平郵一般需時1－4天。<br>
+          | <br>
+          | 付款方式(綠界科技)：<br>
+          | 銀行轉帳 : 本店提供恆生銀行和中國(香港)銀行帳號轉帳，帳戶編號會在下單時顯示。<br>
+          | 信用卡：支援VISA、MASTER、AE信用卡付款，需支付3.9%服務費<br>
+          | PAYPAL：可連結PAYPAL付款，需支付3.9%服務費
 </template>
 
 <script>
 import {mapState,mapMutations,mapActions} from 'vuex'
 import Axios from 'axios'
 import $ from 'jquery'
+import fullPage from './fullPage'
 export default {
   mounted() {
     console.log('page_works mounted.')
@@ -78,6 +103,7 @@ export default {
   },
   data () {
     return {
+      InformOpen: false,
       items: [
         {
           title: "醜奴兒 專輯(實體)",
@@ -113,6 +139,9 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    fullPage
   },
   computed:{
     ...mapState(['scrollTop','news','cart'])

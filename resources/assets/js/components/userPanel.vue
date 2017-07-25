@@ -40,7 +40,7 @@
               li.buyItem.total(:key="-1")
                 .name 總計
                 .price {{totalPrice}}元
-            div.text-right(@click="checkOut") 
+            div.text-right.hoverOpacity(@click="checkOut") 
               img.icon(src="/img/元件/ICON/ICON-06.png", alt="")
               | 結帳
           .subPanel(v-if="managePaging=='data'", key='data')

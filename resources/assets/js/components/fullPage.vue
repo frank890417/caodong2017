@@ -61,6 +61,8 @@ $color_theme: #888
   background-color: rgba(black,0.9)
   flex-direction: column
 
+  .fullContent
+    max-width: 550px
   // &:before
   //   content: ""
   //   position: absolute

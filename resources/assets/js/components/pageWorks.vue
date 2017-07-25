@@ -42,7 +42,9 @@
         .btns
           //pre {{song}}
           //h2 {{song.preview}}
-          audio.trackPreview(:src="nowAlbum.songs[playingId].preview" controls)
+          //audio.trackPreview(:src="nowAlbum.songs[playingId].preview" controls)
+          audioPlayer.trackPreview(:sources="[nowAlbum.songs[playingId].preview]",
+                                   :autoplay='true')
           div.btnBuy(@click = "addCart(nowAlbum.songs[playingId])", v-if="!cart.find(o=>o.title==nowAlbum.songs[playingId].title)") 
             img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
             | 購買單曲
@@ -62,6 +64,7 @@
 import {mapState,mapMutations,mapActions} from 'vuex'
 import Axios from 'axios'
 import $ from 'jquery'
+import audioPlayer from './audioPlayer'
 export default {
   mounted() {
     console.log('page_works mounted.')
@@ -111,6 +114,9 @@ export default {
         $("audio.trackPreview")[0].play()
       })
     }
+  },
+  components: {
+    audioPlayer
   }
 }
 </script>
