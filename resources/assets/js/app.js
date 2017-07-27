@@ -125,6 +125,7 @@ new Vue({
       this.setMobile(true) 
     }
     $(window).resize(()=>{
+      windowWidth = $(window).outerWidth()
       this.setMobile(windowWidth<799) 
     })
   },

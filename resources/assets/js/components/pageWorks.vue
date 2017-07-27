@@ -16,7 +16,6 @@
                               title="下一張專輯",
                               @click="now_album_id--", 
                               v-if="now_album_id<albums.count-1")
-        
             .cover_info
               .title {{nowAlbum.title}}
               .eng {{nowAlbum.eng}} 
@@ -26,19 +25,29 @@
               div(@click = "remove_buy_item(nowAlbum)", v-else) - 
                 img.icon(src="/img/元件/ICON/ICON-27.png", alt="")
                 | 移除專輯
+
+          .phoneTab(v-if="mobile")
+            .btn(@click="phonePage='tracks'",
+                 :class="{active: phonePage=='tracks'}") 曲目
+            .btn(@click="phonePage='lyrics'",
+                 :class="{active: phonePage=='lyrics'}") 歌詞
+               
           //, v-if="now_album_id>0"
-          .tracks
-          .track(v-for="(song,id) in nowAlbum.songs",
-                 :class="{active: playingId==id}",
-                 @click="playingId=id")
-            img(:src="'/img/03_WORKS/歌名/'+song.title+'.png'")
+          .tracks(v-if="(mobile && phonePage=='tracks') || !mobile")
+            .track(v-for="(song,id) in nowAlbum.songs",
+                  :class="{active: playingId==id}",
+                  @click="playingId=id")
+              img(:src="'/img/03_WORKS/歌名/'+song.title+'.png'")
+          
       .right.col_lyrics
-        transition-group(name="fade-delay",mode="out-in")
+        transition-group(name="fade-delay",
+                         mode="out-in",
+                         v-if="(mobile && phonePage=='lyrics') || !mobile")
           p.lyrics(v-html="replaceBr(song.lyrics)",
             v-for="(song,id) in nowAlbum.songs",
             v-show="id==playingId",
             :key="song.title")
-        
+          
         .btns
           //pre {{song}}
           //h2 {{song.preview}}
@@ -51,7 +60,6 @@
           div.btnBuy(@click = "remove_buy_item(nowAlbum.songs[playingId])", v-else)
             img.icon(src="/img/元件/ICON/ICON-27.png", alt="")
             | 移除單曲
-
           router-link(to="/shop") 
             img.icon(src="/img/元件/ICON/ICON-34.png", alt="") 
             | 更多商品
@@ -98,12 +106,14 @@ export default {
       playingId: 1,
       albums: [
       ],
-      now_album_id: 0
+      now_album_id: 0,
+      phonePage: "tracks"
+
       
     }
   },
   computed:{
-    ...mapState(['scrollTop','news','cart']),
+    ...mapState(['scrollTop','news','cart','mobile']),
     nowAlbum(){
       return this.albums[this.now_album_id]
     }

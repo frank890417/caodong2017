@@ -20,8 +20,8 @@
           .btn.btn_down(@click="newspage+=1")
             img(src="/img/元件/ICON/ICON-53.png")
           transition-group(name="fade-delay", mode="out-in")
-            li(v-for="(a_news,newsId) in news.slice(newspage,newspage+6)",
-              :key="newsId")
+            li(v-for="(a_news,newsId) in news.slice(newspage*delta,newspage+delta)",
+              :key="a_news")
               .date {{a_news.date}}
               .news_title(v-html="a_news.title",
               @click="newsOpen=true; nowNewsId=newsId")
@@ -47,6 +47,7 @@ export default {
       // abouttexts: files,
       blockY: -1,
       newspage: 0,
+      delta: 4,
       newsOpen: false,
       nowNewsId: 0
     }

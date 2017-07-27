@@ -30,13 +30,30 @@
     display: flex
     align-items: flex-end
     padding-bottom: 30px
-
+    +rwd_sm
+      flex-direction: column
+      align-items: center
+      padding-left: 30px
+      padding-right: 30px
+    //左側專輯蘭
     .left
       width: 45%
+
+      +rwd_sm
+        width: 100%
+
+
+    //右側歌詞欄
     .right
       box-sizing: border-box
       width: 55%
       padding-left: 5%
+      
+      +rwd_sm
+        width: 100%
+        margin-top: 30px
+        padding-left: 0% 
+
       p
         text-align: center
         //font-size: 16px
@@ -95,6 +112,10 @@
 
     align-items: center
 
+    +rwd_sm
+      // display: block
+
+
 
     .album_cover
       width: 250px
@@ -103,18 +124,28 @@
       // margin-left: 20px
       // margin-right: 20px
 
-  //左側歌名
-  .track
-    opacity: 0.35
-    cursor: pointer
-    text-align: center
-    margin-bottom: -5px
-    +trans
-    img
-      height: 50px
-    &.active
-      opacity: 1
+  .tracks
+    display: flex
+    flex-direction: column
+    
+    +rwd_sm
+      height: 300px
+      flex-wrap: wrap
+      
+    //左側歌名
+    .track
+      opacity: 0.35
+      cursor: pointer
+      text-align: center
+      margin-bottom: -5px
+      +trans
+      img
+        height: 50px
+      &.active
+        opacity: 1
 
+
+  .col_lyrics
 
 
   //右邊歌詞
@@ -125,7 +156,13 @@
     left: 50%
     transform: translateX(-50%)
     white-space: nowrap
-  
+    +rwd_sm
+      position: relative
+      bottom: 0px
+      left: 0
+      transform: none
+      margin-top: 30px
+
   .btns
     display: flex
     justify-content: center
@@ -141,3 +178,22 @@
     position: relative
     audio
       margin-right: 40px
+
+
+//手機版區塊選單
+.phoneTab
+  display: flex
+  margin-bottom: 30px
+    
+  .btn
+    border: solid 1px white
+    flex: 1
+    padding: 5px 10px
+    width: 100%
+    margin: 0
+    border-radius: 5px 5px 0px 0px
+    cursor: pointer
+    
+    &.active
+      background-color: white
+      color: black

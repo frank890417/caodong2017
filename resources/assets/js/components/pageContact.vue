@@ -1,7 +1,7 @@
 <template lang="jade">
 .page.pageContact
   .back_img
-    .left_img(:style="{transform: `translateY(${(scrollTop-blockY)/3}px)`}")
+    .left_img
       .tile
     h4.copyright Copyright 2017 © 草東沒有派對 No Party For Cao Dong, All right reserved.
     
