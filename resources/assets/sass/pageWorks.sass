@@ -30,17 +30,22 @@
     display: flex
     align-items: flex-end
     padding-bottom: 30px
+    
     +rwd_sm
       flex-direction: column
       align-items: center
       padding-left: 30px
       padding-right: 30px
+      align-content: flex-start
+      display: block
     //左側專輯蘭
     .left
       width: 45%
 
       +rwd_sm
         width: 100%
+        display: block
+
 
 
     //右側歌詞欄
@@ -51,7 +56,7 @@
       
       +rwd_sm
         width: 100%
-        margin-top: 30px
+        // margin-top: 30px
         padding-left: 0% 
 
       p
@@ -64,6 +69,10 @@
     // width: 100%
     // padding-bottom: 100%
     position: relative
+    +rwd_sm
+      +flex_center
+      flex-direction: column
+      width: 100%
     .btn_left,.btn_right
       +ab_center
       width: 30px
@@ -80,7 +89,6 @@
     
   .cover_info
     +ab_full
-    +ab_center
     +flex_center
     +trans
     opacity: 0
@@ -90,8 +98,8 @@
 
   .cover_container
     position: relative
+    +flex_center
 
-  .cover_info
     
 
   .about_text
@@ -131,7 +139,7 @@
     +rwd_sm
       height: 300px
       flex-wrap: wrap
-      
+      width: 100%
     //左側歌名
     .track
       opacity: 0.35
@@ -156,17 +164,20 @@
     left: 50%
     transform: translateX(-50%)
     white-space: nowrap
+    max-height: 50vh
+    overflow-y: auto
     +rwd_sm
       position: relative
       bottom: 0px
       left: 0
       transform: none
-      margin-top: 30px
 
   .btns
     display: flex
     justify-content: center
     align-items: center
+    +rwd_sm
+      display: block
     &>*
       flex-shrink: 0
       span
@@ -184,6 +195,7 @@
 .phoneTab
   display: flex
   margin-bottom: 30px
+  width: 100%
     
   .btn
     border: solid 1px white
@@ -193,6 +205,7 @@
     margin: 0
     border-radius: 5px 5px 0px 0px
     cursor: pointer
+
     
     &.active
       background-color: white
