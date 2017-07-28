@@ -19,7 +19,7 @@
             img(src="/img/元件/ICON/ICON-54.png")
           .btn.btn_down(@click="newspage+=1")
             img(src="/img/元件/ICON/ICON-53.png")
-          transition-group(name="fade-delay", mode="out-in")
+          transition-group(name="fade-delay", mode="out-in", tag="div")
             li(v-for="(a_news,newsId) in news.slice(newspage*delta,newspage+delta)",
               :key="a_news")
               .date {{a_news.date}}
