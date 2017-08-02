@@ -4,6 +4,7 @@
     .left_img
       .tile
     .content
+      h2.pageTitle 商品
       .col_shop
         .item(v-for="(item,itemId) in items.slice(0,8)",
               :style="{'background-image': 'url('+item.cover+')'}",

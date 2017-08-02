@@ -53,7 +53,7 @@
           //h2 {{song.preview}}
           //audio.trackPreview(:src="nowAlbum.songs[playingId].preview" controls)
           audioPlayer.trackPreview(:sources="[previewUrl]",
-                                   :autoplay='true')
+                                   :autoplay='false')
           div.btnBuy(@click = "addCart(nowAlbum.songs[playingId])", v-if="!cart.find(o=>o.title==nowAlbum.songs[playingId].title)") 
             img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
             | 購買單曲
