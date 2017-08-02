@@ -30,6 +30,9 @@ import $ from 'jquery'
 import VueYouTubeEmbed from 'vue-youtube-embed'
 Vue.use(VueYouTubeEmbed)
 // Vue.config.productionTip = false
+window.store=store
+store.commit("setUser",window.user)
+// console.warn(window.user)
 
 // wheelDelta
 const mousewheel = Rx.Observable.fromEvent(document, 'mousewheel')

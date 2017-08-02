@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     scrollTop: 0,
     navOpen: false,
-    user: window.user,
+    user: null,
     news: [
       {
         date: "2017.01.22",
@@ -93,6 +93,9 @@ export default new Vuex.Store({
     },
     toggleNavOpen(state,value){
       state.navOpen=!state.navOpen
+    },
+    setUser(state,value){
+      state.user=value
     }
 
   },

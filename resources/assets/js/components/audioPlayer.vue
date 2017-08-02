@@ -11,6 +11,12 @@
       toMS(sec){
         return parseInt(sec/60)+":"+ ((sec%60)<10?("0"+(sec%60)): (sec%60))
       }
+    },
+    mounted(){
+      let _this = this
+      Vue.nextTick(()=>{
+        _this.stop();
+      })
     }
   }
 </script>
@@ -22,7 +28,7 @@
       img.audioIcon.hoverOpacity(src="/img/元件/ICON/ICON-49.png", v-else)
     .playingTrack(@click="setTime($event)")
       .nowPointer(:style="{width: ( (1-progress) * 100)+'%'}")
-      .duration {{ toMS(parseInt(duration*progress)) }} / {{ toMS(parseInt(duration)) }}
+      .duration {{ progress?toMS(parseInt(duration*progress)):"0:00" }} / {{ toMS(parseInt(duration)) }}
     //span Progress: {{ (progress * 100) }}%
 </template>
 
@@ -45,6 +51,7 @@
 
 .duration
   font-size: 14px
+  pointer-events: none
 .nowPointer    
   height: 100%
   position: absolute
@@ -60,4 +67,5 @@
   width: 30px
   cursor: pointer
   margin-right: 10px
+
 </style>

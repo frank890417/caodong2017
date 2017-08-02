@@ -3,6 +3,9 @@ const elixir = require('laravel-elixir');
 require('laravel-elixir-vue-2');
 require('laravel-blade-jade');
 require('laravel-elixir-jade');
+require('laravel-elixir-karma');
+
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -20,6 +23,10 @@ elixir((mix) => {
           './node_modules/babel-polyfill/dist/polyfill.js',
           'app.js'
         ],'public/js/app.js')
+      // .webpack([
+      //     // './node_modules/babel-polyfill/dist/polyfill.js',
+      //     './tests/testSpec.js'
+      //   ],'tests/testSpec.js')
        // .webpack([
        //    './node_modules/babel-polyfill/dist/polyfill.js',
        //    'backend.js'],
@@ -31,5 +38,7 @@ elixir((mix) => {
         pretty: true,
         search: '**/*.jade',
         src: '/blade/'
-    });
+        })
+        //.karma();
+
 });
