@@ -67,7 +67,8 @@ export default new Vuex.Store({
     memberPanelOpened: false,
     user: null,
     nowBlock: "",
-    mobile: false
+    mobile: false,
+    managePaging: window.user?"cart":"login"
   },
   mutations: {
     set_scrollTop(state,value){
@@ -85,7 +86,10 @@ export default new Vuex.Store({
     remove_buy_item(state,item){
       state.cart=state.cart.filter(o=>o.title!=item.title)
     },
-    toggleMemberPanel(state){
+    toggleMemberPanel(state,target){
+      if (target){
+        state.managePaging=target
+      }
       state.memberPanelOpened = !state.memberPanelOpened
     },
     setMobile(state,value){
@@ -96,6 +100,9 @@ export default new Vuex.Store({
     },
     setUser(state,value){
       state.user=value
+    },
+    setManagePaging(state,value){
+      state.managePaging=value
     }
 
   },

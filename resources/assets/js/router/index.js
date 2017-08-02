@@ -9,7 +9,7 @@ var router = new Router({
   routes: [
     {
       path: '/',
-      alias: ['/intro','/news','/video','/works','/contact', '/shop' ,  '/tour'],
+      alias: [ '/_=_', '/intro','/news','/video','/works','/contact', '/shop' ,  '/tour'],
       name: 'App',
       component: App
     }

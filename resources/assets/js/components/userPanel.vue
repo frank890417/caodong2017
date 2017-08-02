@@ -6,19 +6,19 @@
         h3 會員專區
         h5(v-if="user") 會員 {{user.name}} 您好。
         ul.navs
-          li.nav( @click="managePaging='login'", v-if="!user")
+          li.nav( @click="setManagePaging('login')", v-if="!user")
             img.icon(src="/img/元件/ICON/ICON-25.png", alt="")
             span 登入
           li.nav(@click="logout", v-if="user")
             img.icon(src="/img/元件/ICON/ICON-13.png", alt="")
             span 登出
-          li.nav( @click="managePaging='cart'")
+          li.nav( @click="setManagePaging('cart')")
             img.icon(src="/img/元件/ICON/ICON-45.png", alt="")
             span 購物車
-          li.nav(@click="managePaging='data'")
+          li.nav(@click="setManagePaging('data')")
             img.icon(src="/img/元件/ICON/ICON-33.png", alt="")
             span 資料修改
-          li.nav(@click="managePaging='reord'")
+          li.nav(@click="setManagePaging('reord')")
             img.icon(src="/img/元件/ICON/ICON-36.png", alt="")
             span 訂單查詢
         .navFixed
@@ -37,7 +37,7 @@
               .col-md-6.col-md-offset-4.btns
                 button.btn(type='submit', @click.prevent='login')
                   | 登入
-                a.btn.btn-fb(href="redirect", target="_blank") FB Login
+                a.btn.btn-fb(href="redirect") FB Login
               
           .subPanel(v-if="managePaging=='cart'", key='cart')
             h4 購物車
@@ -62,6 +62,7 @@
             div.text-right.hoverOpacity(@click="checkOut") 
               img.icon(src="/img/元件/ICON/ICON-06.png", alt="")
               | 結帳
+
           .subPanel(v-if="managePaging=='data'", key='data')
             .row.form-group(:class="{'has-error' : hasErrors.name}")
               label.col-md-4.control-label(for='name') Name
@@ -95,7 +96,7 @@
 
 
   ul.fixedBtns
-    li.btnCheckOut(@click="toggleMemberPanel") 
+    li.btnCheckOut(@click="toggleMemberPanel('cart')") 
       .len {{cart.length}}
       img.icon(src="/img/元件/ICON/ICON-33.png", alt="" ,title="點擊加入購物車")
       
@@ -132,11 +133,10 @@ export default {
           email:null,
           password:null
       },
-      managePaging: "cart"
     }
   },
   methods: {
-    ...mapMutations(['scrollTo','toggleMemberPanel']),
+    ...mapMutations(['scrollTo','toggleMemberPanel','setManagePaging']),
     ...mapActions(['checkOut']),
     registerPost(){
         var _this = this
@@ -189,7 +189,7 @@ export default {
     this.indexHeight=$(".pageIndex").outerHeight()
   },
   computed:{
-    ...mapState(['scrollTop','cart','memberPanelOpened','user']),
+    ...mapState(['scrollTop','cart','memberPanelOpened','user','managePaging']),
     totalPrice(){
       return this.cart.reduce((total,item)=>(total+=item.price*(item.count?item.count:1)),0)
     }

@@ -28,8 +28,14 @@
           p(v-html="tourdata[nowTourId].content")
           .btnLeft.hoverOpacity(@click="delta(-1)", v-if="nowTourId>0")
             img.icon(src="/img/元件/ICON/ICON-01.png", alt="" ,title="前一則")
+            .arrowtext
+              .date {{tourdata[nowTourId-1].date}}
+              .place {{tourdata[nowTourId-1].place}}
           .btnRight.hoverOpacity(@click="delta(1)", v-if="nowTourId<tourdata.length-1")
             img.icon(src="/img/元件/ICON/ICON-02.png", alt="" ,title="後一則")
+            .arrowtext
+              .date {{tourdata[nowTourId+1].date}}
+              .place {{tourdata[nowTourId+1].place}}
 
 
       

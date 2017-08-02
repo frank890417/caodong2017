@@ -52,7 +52,7 @@
           //pre {{song}}
           //h2 {{song.preview}}
           //audio.trackPreview(:src="nowAlbum.songs[playingId].preview" controls)
-          audioPlayer.trackPreview(:sources="[nowAlbum.songs[playingId].preview]",
+          audioPlayer.trackPreview(:sources="[previewUrl]",
                                    :autoplay='true')
           div.btnBuy(@click = "addCart(nowAlbum.songs[playingId])", v-if="!cart.find(o=>o.title==nowAlbum.songs[playingId].title)") 
             img.icon(src="/img/元件/ICON/ICON-35.png", alt="")
@@ -116,6 +116,9 @@ export default {
     ...mapState(['scrollTop','news','cart','mobile']),
     nowAlbum(){
       return this.albums[this.now_album_id]
+    },
+    previewUrl(){
+      return this.nowAlbum.songs[this.playingId].preview
     }
   },
   watch: {
